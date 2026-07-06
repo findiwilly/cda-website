@@ -12,7 +12,7 @@ import * as THREE from "three";
  */
 
 const SIZE = 240;
-const SPREAD = 3.1;
+const SPREAD = 2.4;
 
 /** Soft radial sprite so points render as circular glows, not hard squares */
 let spriteTexture: THREE.CanvasTexture | null = null;
@@ -98,9 +98,9 @@ function buildLion(count: number, eyeCount: number) {
   const phase = new Float32Array(total);
   const speed = new Float32Array(total);
 
-  const green = new THREE.Color("#00A67E");
+  const green = new THREE.Color("#00C08B");
   const yellow = new THREE.Color("#FCD116");
-  const red = new THREE.Color("#CE1126");
+  const red = new THREE.Color("#E23A4E");
 
   for (let i = 0; i < count; i++) {
     const [px, py] = filled[Math.floor(Math.random() * filled.length)];
@@ -111,7 +111,7 @@ function buildLion(count: number, eyeCount: number) {
     baseZ[i] = z;
 
     const r = Math.random();
-    const c = r < 0.74 ? green : r < 0.96 ? yellow : red;
+    const c = r < 0.7 ? green : r < 0.94 ? yellow : red;
     colors[i * 3] = c.r;
     colors[i * 3 + 1] = c.g;
     colors[i * 3 + 2] = c.b;
@@ -144,7 +144,7 @@ function buildLion(count: number, eyeCount: number) {
   return { positions, baseZ, colors, phase, speed, total };
 }
 
-function LionPoints({ count = 2600, eyeCount = 90 }) {
+function LionPoints({ count = 4200, eyeCount = 150 }) {
   const ref = useRef<THREE.Points>(null);
   const lion = useMemo(() => buildLion(count, eyeCount), [count, eyeCount]);
 
@@ -179,11 +179,11 @@ function LionPoints({ count = 2600, eyeCount = 90 }) {
     <points ref={ref} geometry={geometry}>
       <pointsMaterial
         map={getSprite()}
-        size={0.034}
+        size={0.036}
         sizeAttenuation
         vertexColors
         transparent
-        opacity={0.65}
+        opacity={0.9}
         blending={THREE.AdditiveBlending}
         depthWrite={false}
       />
