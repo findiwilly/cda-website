@@ -8,6 +8,10 @@ import {
 } from "next-intl/server";
 import { Syne, Space_Grotesk } from "next/font/google";
 import { routing, type Locale } from "@/i18n/routing";
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import "../globals.css";
 
 const displayFont = Syne({
@@ -60,7 +64,12 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${displayFont.variable} ${bodyFont.variable}`}>
       <body className="relative min-h-dvh noise">
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <SmoothScroll>
+            <Navbar />
+            {children}
+            <Footer />
+            <WhatsAppButton />
+          </SmoothScroll>
         </NextIntlClientProvider>
       </body>
     </html>

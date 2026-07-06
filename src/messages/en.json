@@ -17,18 +17,38 @@
   "cta": {
     "bookFreeSession": "Book your free strategy session",
     "exploreIndustries": "Explore industries",
-    "whatsappChat": "Chat with us on WhatsApp"
+    "whatsappChat": "Chat with us on WhatsApp",
+    "requestDeployment": "Request a deployment"
   },
   "home": {
     "hero": {
       "eyebrow": "AI digital transformation agency — Yaoundé, Cameroon",
       "title": "Your business deserves a <accent>world-class</accent> digital presence.",
-      "subtitle": "Strong brands, fast websites, AI automation. CDA grows Cameroonian SMEs — from Yaoundé across Francophone Africa."
+      "subtitle": "Strong brands, fast websites, AI automation. CDA grows Cameroonian SMEs — from Yaoundé across Francophone Africa.",
+      "proof": "15 industries · Yaoundé & Douala · AI inside"
     },
     "stats": {
       "clients": "Clients served",
       "projects": "Projects delivered",
       "industries": "Industries covered"
+    },
+    "powerOffer": {
+      "eyebrow": "The CDA Signature Offer",
+      "title": "Your complete digital presence, delivered in 30 days.",
+      "b1": "Mobile-first website that loads fast, even on 3G",
+      "b2": "Professional brand identity, print and digital",
+      "b3": "WhatsApp chatbot answering your customers 24/7",
+      "b4": "90 days of content planned with you",
+      "note": "Three spots per month. Not one more."
+    },
+    "ticker": {
+      "label": "CDA in action",
+      "item1": "Website deployed for a Douala restaurant",
+      "item2": "AI chatbot trained for a microfinance",
+      "item3": "Campaign launched for a Yaoundé school",
+      "item4": "Digital menu delivered for a hotel",
+      "item5": "Brand identity finalized for a beauty salon",
+      "item6": "Analytics dashboard activated for a boutique"
     },
     "services": {
       "eyebrow": "Our services",
@@ -36,12 +56,43 @@
       "subtitle": "From brand to AI: one senior team, one standard of execution.",
       "viewAll": "View all services"
     },
+    "industriesPreview": {
+      "eyebrow": "Industries",
+      "title": "We speak your industry's language",
+      "subtitle": "Fifteen industries, strategies tailored to each one.",
+      "viewAll": "All industries"
+    },
+    "testimonials": {
+      "eyebrow": "They trust us",
+      "title": "Results that speak",
+      "t1": {
+        "quote": "CDA rebuilt our image and our bookings doubled in three months. We didn't think that was possible here.",
+        "name": "Mireille A.",
+        "role": "Salon owner, Yaoundé"
+      },
+      "t2": {
+        "quote": "Their chatbot answers parents day and night. Our front office can finally breathe.",
+        "name": "Éric N.",
+        "role": "School director, Douala"
+      },
+      "t3": {
+        "quote": "Finally a team that understands the Cameroonian market and delivers at an international level.",
+        "name": "Sandrine T.",
+        "role": "Travel agency, Yaoundé"
+      }
+    },
     "finalCta": {
       "title": "We'll show you exactly how — in your free strategy session.",
       "subtitle": "30 minutes. Zero commitment. Concrete recommendations for your industry."
     }
   },
   "services": {
+    "intro": {
+      "eyebrow": "Our services",
+      "title": "A complete stack, one standard",
+      "subtitle": "Every service is designed for the Cameroonian market and executed at an international level.",
+      "tease": "We keep the method for your free session — here's what's possible."
+    },
     "branding": {
       "name": "Branding & Rebranding",
       "pitch": "An identity that commands respect before you say a word."
@@ -54,28 +105,354 @@
       "name": "Social Media Marketing",
       "pitch": "Content that stops the scroll and fills your shop."
     },
+    "content-marketing": {
+      "name": "Content Marketing",
+      "pitch": "A content roadmap that builds your authority, week after week."
+    },
+    "email-sms-marketing": {
+      "name": "Email & SMS Marketing",
+      "pitch": "Messages that arrive, get read, and bring customers back."
+    },
+    "experiential-marketing": {
+      "name": "Experiential Marketing",
+      "pitch": "On-the-ground activations people still talk about weeks later."
+    },
+    "billboard-led-advertising": {
+      "name": "Billboard & LED Screens",
+      "pitch": "Yaoundé and Douala, 20+ strategic intersections. Your brand, writ large."
+    },
     "web-development": {
       "name": "Web Development",
       "pitch": "Fast, elegant sites built for mobile-first Cameroon."
+    },
+    "custom-software": {
+      "name": "Custom Software",
+      "pitch": "Business tools tailored to your industry, not generic licenses."
     },
     "ai-automation": {
       "name": "AI Automation",
       "pitch": "Chatbots and agents that work while you sleep."
     },
+    "seo-geo-aeo": {
+      "name": "SEO · GEO · AEO",
+      "pitch": "Found on Google, on maps, and by AI assistants. One goal: visibility."
+    },
     "data-analytics": {
       "name": "Data Analytics",
       "pitch": "Your numbers, finally readable — and safer decisions."
+    },
+    "it-consulting": {
+      "name": "IT Consulting",
+      "pitch": "Sound technology decisions, explained without jargon."
+    },
+    "e-invitations": {
+      "name": "E-Invitations",
+      "pitch": "Weddings, galas, launches: digital invitations worthy of the event."
+    }
+  },
+  "industries": {
+    "intro": {
+      "eyebrow": "Industries",
+      "title": "Your business, our playing field",
+      "subtitle": "Fifteen industries, one obsession: measurable results in yours."
+    },
+    "discover": "Discover",
+    "hospitality": {
+      "name": "Hospitality & Restaurants",
+      "hook": "Your tables sit empty while your competitors are fully booked.",
+      "flagship": "An elegant digital menu, orderable from WhatsApp — your customers come back more often."
+    },
+    "beauty-cosmetics": {
+      "name": "Beauty & Cosmetics",
+      "hook": "Your salon deserves better than blurry photos on Facebook.",
+      "flagship": "Automated bookings and an Instagram storefront that turns views into appointments."
+    },
+    "interior-design": {
+      "name": "Interior Design",
+      "hook": "Your work is stunning. Who's seeing it?",
+      "flagship": "An immersive portfolio that turns visitors into signed projects."
+    },
+    "schools-training": {
+      "name": "Schools & Training Centers",
+      "hook": "Parents choose the school they can find online.",
+      "flagship": "Online enrollment and automated parent communication via WhatsApp."
+    },
+    "insurance": {
+      "name": "Insurance",
+      "hook": "Trust is built before the first meeting.",
+      "flagship": "An online quote simulator capturing prospects around the clock."
+    },
+    "travel-agencies": {
+      "name": "Travel Agencies",
+      "hook": "Your clients dream online. Book them before anyone else does.",
+      "flagship": "Dynamic travel offers and a chatbot answering visa questions instantly."
+    },
+    "finance": {
+      "name": "Microfinance & Credit Unions",
+      "hook": "Your members' growth starts with their digital trust.",
+      "flagship": "A secure member portal and dashboards that reassure and retain."
+    },
+    "construction": {
+      "name": "Construction",
+      "hook": "Your projects speak. Show them to the right decision-makers.",
+      "flagship": "A project showcase that strengthens every bid."
+    },
+    "fashion-retail": {
+      "name": "Fashion & Retail",
+      "hook": "Your shop closes at 6pm. Your brand never should.",
+      "flagship": "WhatsApp catalog + Mobile Money payment: sell while you sleep."
+    },
+    "manufacturing": {
+      "name": "Manufacturing",
+      "hook": "Your B2B buyers search for you online. They find your competitors.",
+      "flagship": "A professional product catalog and automated B2B lead generation."
+    },
+    "gyms-fitness": {
+      "name": "Gyms & Fitness",
+      "hook": "Every month, members quietly walk away.",
+      "flagship": "Automated reminders and online programs that keep members hooked."
+    },
+    "automotive": {
+      "name": "Automotive",
+      "hook": "Cars are now bought on a screen first.",
+      "flagship": "A virtual showroom and test-drive booking in two clicks."
+    },
+    "laundry": {
+      "name": "Laundry & Dry Cleaning",
+      "hook": "Convenience retains customers better than price.",
+      "flagship": "Order and track laundry via WhatsApp — your customers stop leaving."
+    },
+    "legal-services": {
+      "name": "Law Firms",
+      "hook": "Future clients judge you before they ever call.",
+      "flagship": "A sober, credible presence with confidential online appointment booking."
+    },
+    "talent-management": {
+      "name": "Talent Management",
+      "hook": "Your talents shine. Your visibility should too.",
+      "flagship": "Artist portfolios and automated matchmaking with brands."
+    }
+  },
+  "industryPage": {
+    "transformTitle": "How we transform your business",
+    "servicesTitle": "The levers we pull",
+    "flagshipLabel": "Flagship example",
+    "planTitle": "Your first 90 days with CDA",
+    "planSubtitle": "A preview — the full plan is built in your session.",
+    "p1": {
+      "title": "Days 1–30 · Foundations",
+      "desc": "Audit, identity, a clean and fast digital presence."
+    },
+    "p2": {
+      "title": "Days 31–60 · Traction",
+      "desc": "Content that attracts, automations that answer, first campaigns."
+    },
+    "p3": {
+      "title": "Days 61–90 · Acceleration",
+      "desc": "Data-driven optimization, scaling what works."
+    },
+    "trustTitle": "A whole team behind your growth",
+    "trustBody": "Strategists, designers, developers, AI specialists: one senior team, coordinated for your industry.",
+    "formTitle": "Let's talk about your business",
+    "formSubtitle": "Answer within 24 hours, straight on WhatsApp."
+  },
+  "aiAgents": {
+    "hero": {
+      "eyebrow": "Our differentiator",
+      "title": "A virtual executive suite, powered by AI.",
+      "subtitle": "Six orchestrated agents — strategy, marketing, operations, technology, finance, customer care — trained on your brand and your market."
+    },
+    "exclusive": {
+      "title": "Not publicly available.",
+      "body": "The CDA virtual C-Suite is deployed on request only, for businesses that demand magnificent results. Every deployment is calibrated to your audience, your segment, and your goals."
+    },
+    "agents": {
+      "cso": { "title": "Chief Strategy Officer", "desc": "Reads your market and charts the course." },
+      "cmo": { "title": "Chief Marketing Officer", "desc": "Orchestrates your campaigns and content." },
+      "coo": { "title": "Chief Operations Officer", "desc": "Streamlines your daily operations." },
+      "cto": { "title": "Chief Technology Officer", "desc": "Watches over your stack and your data." },
+      "cfo": { "title": "Chief Financial Officer", "desc": "Tracks your margins and cash flow." },
+      "cco": { "title": "Chief Customer Officer", "desc": "Cares for every customer, 24/7." }
+    },
+    "how": {
+      "title": "Co-pilots for your stack",
+      "p1": "Our agents don't replace your team: they multiply it. Connected to your tools — WhatsApp, email, CRM, spreadsheets — they execute, measure, and learn.",
+      "p2": "You keep the wheel. They keep the pace."
+    },
+    "cta": {
+      "title": "Request a deployment.",
+      "subtitle": "By application only. Let's talk about your ambitions."
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About CDA",
+      "title": "The talent is here. Now, so is the standard.",
+      "subtitle": "The story of an agency born in Yaoundé with a world-class bar."
+    },
+    "story": {
+      "p1": "CDA was born from a simple observation: Cameroonian businesses deserve the same level of digital execution as those in Paris, London, or San Francisco.",
+      "p2": "Findi founded CDA in Yaoundé with one conviction: the talent is here, the tools are now accessible — all that was missing was the standard.",
+      "p3": "AI is changing the rules. For the first time, an SME in Yaoundé can operate with the precision of a multinational — with the right partner.",
+      "p4": "The lion is not just a symbol. It's our standard: presence, patience, precision."
+    },
+    "pillars": {
+      "purpose": {
+        "title": "Our purpose",
+        "body": "Giving African businesses the digital means to match their ambitions."
+      },
+      "vision": {
+        "title": "Our vision",
+        "body": "Becoming the reference digital transformation partner in Francophone Africa."
+      },
+      "mission": {
+        "title": "Our mission",
+        "body": "Delivering brands, platforms, and automations that produce measurable results."
+      },
+      "values": {
+        "title": "Our values",
+        "body": "Excellence without excuses. Radical honesty. Results first. Local pride, world standard."
+      }
+    }
+  },
+  "resources": {
+    "intro": {
+      "eyebrow": "Resources",
+      "title": "Your numbers, made clear",
+      "subtitle": "Four calculators to steer your business. Instant results, plain-language explanations."
+    },
+    "improve": "Want to improve this number? Book a session.",
+    "roi": {
+      "name": "ROI Calculator",
+      "desc": "What every franc invested brings back.",
+      "invested": "Investment (FCFA)",
+      "gained": "Revenue generated (FCFA)",
+      "result": "Return on investment"
+    },
+    "ltv": {
+      "name": "LTV Calculator",
+      "desc": "The total value of a loyal customer.",
+      "aov": "Average order value (FCFA)",
+      "freq": "Purchases per year",
+      "years": "Years of loyalty",
+      "result": "Customer lifetime value"
+    },
+    "cac": {
+      "name": "CAC Calculator",
+      "desc": "What each new customer costs you.",
+      "spend": "Marketing spend (FCFA)",
+      "customers": "New customers won",
+      "result": "Customer acquisition cost"
+    },
+    "churn": {
+      "name": "Churn Calculator",
+      "desc": "The rate at which you lose customers.",
+      "start": "Customers at start of month",
+      "lost": "Customers lost during the month",
+      "result": "Monthly churn rate"
+    }
+  },
+  "blog": {
+    "intro": {
+      "eyebrow": "Blog",
+      "title": "Tech, seen from here",
+      "subtitle": "AI, digital and business trends — in Africa and worldwide."
+    },
+    "comingSoon": "First articles in the works. Check back soon.",
+    "readTime": "min read",
+    "posts": {
+      "p1": {
+        "title": "Generative AI is reaching Cameroonian SMEs — here's what changes",
+        "excerpt": "Chatbots, content, analytics: what AI finally makes accessible to small businesses.",
+        "category": "Artificial intelligence",
+        "readTime": "6"
+      },
+      "p2": {
+        "title": "Mobile Money + e-commerce: the duo unlocking online sales in Cameroon",
+        "excerpt": "MTN MoMo and Orange Money are changing the game. How to plug your shop in.",
+        "category": "E-commerce",
+        "readTime": "5"
+      },
+      "p3": {
+        "title": "Local SEO in Yaoundé and Douala: get found before your competitors",
+        "excerpt": "Google Maps, reviews, voice search: the local visibility kit, explained simply.",
+        "category": "Marketing",
+        "readTime": "7"
+      }
+    }
+  },
+  "contact": {
+    "intro": {
+      "eyebrow": "Contact",
+      "title": "Let's talk about your growth",
+      "subtitle": "Free 30-minute strategy session. You leave with concrete ideas, no matter what."
+    },
+    "booking": {
+      "title": "Book a slot directly",
+      "body": "30 minutes with a CDA strategist. Free, no commitment.",
+      "button": "Open the calendar"
+    },
+    "form": {
+      "title": "Or leave us your details",
+      "name": "Your name",
+      "business": "Business name",
+      "niche": "Your industry",
+      "nichePlaceholder": "Choose your industry",
+      "whatsapp": "WhatsApp number",
+      "whatsappHint": "Cameroonian format: 6XX XX XX XX",
+      "email": "Email (optional)",
+      "message": "Your message (optional)",
+      "submit": "Send and book my session",
+      "success": {
+        "title": "Got it!",
+        "body": "We'll reply on WhatsApp within 24 hours.",
+        "whatsapp": "Or start the conversation now"
+      },
+      "errors": {
+        "name": "Tell us your name.",
+        "whatsapp": "Enter a valid Cameroonian number (e.g. 6 50 07 78 12)."
+      }
+    },
+    "faq": {
+      "title": "The real questions",
+      "q1": {
+        "q": "How much does it cost?",
+        "a": "Every project is quoted individually. A showcase site starts around a few hundred thousand FCFA; a full platform with AI is discussed in session. You always leave with a clear range before any commitment."
+      },
+      "q2": {
+        "q": "How long does it take?",
+        "a": "A showcase site: 2 to 4 weeks. A full identity: 3 weeks. The Signature Offer: 30 days. Software projects depend on scope — we commit to dates, not promises."
+      },
+      "q3": {
+        "q": "I already have a Facebook page. Why a website?",
+        "a": "Facebook is rented ground: the algorithm decides who sees you. Your website is your own land. The two work together — one captures attention, the other converts it."
+      },
+      "q4": {
+        "q": "How does payment work?",
+        "a": "MTN Mobile Money, Orange Money, or bank transfer. Installment plans are available on most projects."
+      },
+      "q5": {
+        "q": "What happens after delivery?",
+        "a": "We don't disappear. Maintenance, content, campaigns: monthly support plans exist, with no forced commitment."
+      }
     }
   },
   "footer": {
     "tagline": "Your business deserves a world-class digital presence.",
+    "explore": "Explore",
+    "servicesCol": "Services",
+    "contactCol": "Contact",
     "location": "Yaoundé, Cameroon",
+    "madeIn": "Proudly built in Yaoundé.",
     "rights": "All rights reserved."
   },
   "common": {
     "loading": "Loading…",
     "comingSoon": "Coming soon",
     "languageToggle": "Switch language",
-    "whatsappLabel": "Chat with CDA on WhatsApp"
+    "whatsappLabel": "Chat with CDA on WhatsApp",
+    "waPrefill": "Hello CDA! I'd like to book my free strategy session.",
+    "menu": "Menu",
+    "close": "Close"
   }
 }
