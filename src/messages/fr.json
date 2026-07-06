@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "title": "Cameroon Digital Agency — Votre partenaire digital à Yaoundé",
+    "description": "CDA transforme les PME camerounaises avec l'IA, le web et le marketing digital de classe mondiale. Basés à Yaoundé, présents partout en Afrique francophone."
+  },
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "aiAgents": "Agents IA",
+    "industries": "Secteurs",
+    "about": "À propos",
+    "blog": "Blog",
+    "resources": "Ressources",
+    "contact": "Contact",
+    "bookSession": "Réserver une session"
+  },
+  "cta": {
+    "bookFreeSession": "Réservez votre session stratégique gratuite",
+    "exploreIndustries": "Découvrez les secteurs",
+    "whatsappChat": "Écrivez-nous sur WhatsApp"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Agence de transformation digitale IA — Yaoundé, Cameroun",
+      "title": "Votre entreprise mérite une présence digitale de <accent>classe mondiale</accent>.",
+      "subtitle": "Marques fortes, sites rapides, automatisations IA. CDA fait grandir les PME camerounaises — de Yaoundé à toute l'Afrique francophone."
+    },
+    "stats": {
+      "clients": "Clients accompagnés",
+      "projects": "Projets livrés",
+      "industries": "Secteurs couverts"
+    },
+    "services": {
+      "eyebrow": "Nos services",
+      "title": "Tout ce qu'il faut pour dominer votre marché",
+      "subtitle": "De la marque à l'IA : une seule équipe senior, un seul standard d'exécution.",
+      "viewAll": "Voir tous les services"
+    },
+    "finalCta": {
+      "title": "On vous montre exactement comment — dans votre session stratégique gratuite.",
+      "subtitle": "30 minutes. Zéro engagement. Des recommandations concrètes pour votre secteur."
+    }
+  },
+  "services": {
+    "branding": {
+      "name": "Branding & Rebranding",
+      "pitch": "Une identité qui impose le respect avant même que vous parliez."
+    },
+    "digital-strategy": {
+      "name": "Stratégie digitale",
+      "pitch": "Un plan clair, taillé pour votre marché. Pas du copier-coller."
+    },
+    "social-media-marketing": {
+      "name": "Social Media Marketing",
+      "pitch": "Des contenus qui arrêtent le scroll et remplissent votre boutique."
+    },
+    "web-development": {
+      "name": "Développement web",
+      "pitch": "Des sites rapides et élégants, pensés pour le mobile camerounais."
+    },
+    "ai-automation": {
+      "name": "Automatisation IA",
+      "pitch": "Chatbots et agents qui travaillent pendant que vous dormez."
+    },
+    "data-analytics": {
+      "name": "Data Analytics",
+      "pitch": "Vos chiffres enfin lisibles — et des décisions plus sûres."
+    }
+  },
+  "footer": {
+    "tagline": "Votre entreprise mérite une présence digitale de classe mondiale.",
+    "location": "Yaoundé, Cameroun",
+    "rights": "Tous droits réservés."
+  },
+  "common": {
+    "loading": "Chargement…",
+    "comingSoon": "Bientôt disponible",
+    "languageToggle": "Changer de langue",
+    "whatsappLabel": "Discuter avec CDA sur WhatsApp"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "title": "Cameroon Digital Agency — Your digital partner in Yaoundé",
+    "description": "CDA transforms Cameroonian SMEs with world-class AI, web and digital marketing. Based in Yaoundé, working across Francophone Africa."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "aiAgents": "AI Agents",
+    "industries": "Industries",
+    "about": "About",
+    "blog": "Blog",
+    "resources": "Resources",
+    "contact": "Contact",
+    "bookSession": "Book a Session"
+  },
+  "cta": {
+    "bookFreeSession": "Book your free strategy session",
+    "exploreIndustries": "Explore industries",
+    "whatsappChat": "Chat with us on WhatsApp"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "AI digital transformation agency — Yaoundé, Cameroon",
+      "title": "Your business deserves a <accent>world-class</accent> digital presence.",
+      "subtitle": "Strong brands, fast websites, AI automation. CDA grows Cameroonian SMEs — from Yaoundé across Francophone Africa."
+    },
+    "stats": {
+      "clients": "Clients served",
+      "projects": "Projects delivered",
+      "industries": "Industries covered"
+    },
+    "services": {
+      "eyebrow": "Our services",
+      "title": "Everything you need to own your market",
+      "subtitle": "From brand to AI: one senior team, one standard of execution.",
+      "viewAll": "View all services"
+    },
+    "finalCta": {
+      "title": "We'll show you exactly how — in your free strategy session.",
+      "subtitle": "30 minutes. Zero commitment. Concrete recommendations for your industry."
+    }
+  },
+  "services": {
+    "branding": {
+      "name": "Branding & Rebranding",
+      "pitch": "An identity that commands respect before you say a word."
+    },
+    "digital-strategy": {
+      "name": "Digital Strategy",
+      "pitch": "A clear plan built for your market. No copy-paste."
+    },
+    "social-media-marketing": {
+      "name": "Social Media Marketing",
+      "pitch": "Content that stops the scroll and fills your shop."
+    },
+    "web-development": {
+      "name": "Web Development",
+      "pitch": "Fast, elegant sites built for mobile-first Cameroon."
+    },
+    "ai-automation": {
+      "name": "AI Automation",
+      "pitch": "Chatbots and agents that work while you sleep."
+    },
+    "data-analytics": {
+      "name": "Data Analytics",
+      "pitch": "Your numbers, finally readable — and safer decisions."
+    }
+  },
+  "footer": {
+    "tagline": "Your business deserves a world-class digital presence.",
+    "location": "Yaoundé, Cameroon",
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "loading": "Loading…",
+    "comingSoon": "Coming soon",
+    "languageToggle": "Switch language",
+    "whatsappLabel": "Chat with CDA on WhatsApp"
+  }
+}
