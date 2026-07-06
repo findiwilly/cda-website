@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-950 text-ink-100 font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-cdagreen text-white;
+  }
+
+  /* Thin, dark, intentional scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: theme("colors.ink.600") transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Glassmorphism surface — cards, navbar */
+  .glass {
+    @apply border border-white/[0.06] bg-white/[0.03] shadow-glass backdrop-blur-xl;
+  }
+
+  /* Subtle grain overlay — apply to a positioned container */
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Flag-tinted gradient text — headline accents only */
+  .text-gradient-cm {
+    @apply bg-gradient-cm bg-clip-text text-transparent;
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "title": "Cameroon Digital Agency — Your digital partner in Yaoundé",
+    "description": "CDA transforms Cameroonian SMEs with world-class AI, web and digital marketing. Based in Yaoundé, working across Francophone Africa."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "aiAgents": "AI Agents",
+    "industries": "Industries",
+    "about": "About",
+    "blog": "Blog",
+    "resources": "Resources",
+    "contact": "Contact",
+    "bookSession": "Book a Session"
+  },
+  "cta": {
+    "bookFreeSession": "Book your free strategy session",
+    "exploreIndustries": "Explore industries",
+    "whatsappChat": "Chat with us on WhatsApp"
+  },
+  "footer": {
+    "tagline": "Your business deserves a world-class digital presence.",
+    "location": "Yaoundé, Cameroon",
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "loading": "Loading…",
+    "comingSoon": "Coming soon",
+    "languageToggle": "Switch language"
+  },
+  "placeholder": {
+    "title": "Cameroon Digital Agency",
+    "subtitle": "The site is coming. The foundation is laid."
+  }
+}
