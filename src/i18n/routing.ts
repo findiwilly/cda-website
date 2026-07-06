@@ -8,6 +8,9 @@ export const routing = defineRouting({
   // `/` is French, `/en/...` is English. next-intl persists the visitor's
   // choice in the NEXT_LOCALE cookie, so the toggle survives revisits.
   localePrefix: "as-needed",
+  // Don't sniff Accept-Language: the Cameroon market lands on French at `/`
+  // regardless of browser settings; the navbar toggle is the way to switch.
+  localeDetection: false,
 });
 
 export type Locale = (typeof routing.locales)[number];

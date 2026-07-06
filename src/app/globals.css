@@ -60,3 +60,12 @@
     @apply bg-gradient-cm bg-clip-text text-transparent;
   }
 }
+
+@keyframes lion-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

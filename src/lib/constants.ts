@@ -8,8 +8,7 @@ export const SITE = {
   shortName: "CDA",
   city: "Yaoundé",
   country: "CM",
-  // TODO: replace with the real business number before launch
-  whatsappNumber: "+237600000000",
+  whatsappNumber: "+237650077812",
   calcomUrl: "https://cal.com/cda/strategy-session",
 } as const;
 
@@ -41,6 +40,23 @@ export const SERVICE_SLUGS = [
 ] as const;
 
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];
+
+/** Subset shown in the Home services preview grid */
+export const FEATURED_SERVICES: readonly ServiceSlug[] = [
+  "branding",
+  "digital-strategy",
+  "social-media-marketing",
+  "web-development",
+  "ai-automation",
+  "data-analytics",
+] as const;
+
+/** Home stat counters — labels live in messages under home.stats.* */
+export const HOME_STATS = [
+  { key: "clients", value: 40, suffix: "+" },
+  { key: "projects", value: 120, suffix: "+" },
+  { key: "industries", value: 15, suffix: "" },
+] as const;
 
 export const INDUSTRY_SLUGS = [
   "hospitality",
