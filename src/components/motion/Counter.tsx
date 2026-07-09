@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { animate, useInView, useReducedMotion } from "framer-motion";
+import { animate, useInView, useReducedMotion } from "motion/react";
 import { EASE } from "@/lib/motion";
 
 export function Counter({

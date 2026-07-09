@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import { useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "motion/react";
 import { ArrowDown } from "lucide-react";
 import { gsap, SplitText, useGSAP } from "@/lib/gsap";
 import { HeroScene } from "@/components/three/HeroScene";

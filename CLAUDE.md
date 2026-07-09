@@ -17,9 +17,18 @@ Nothing may look template-like or "AI-generated".
 - **Tailwind CSS 3.4** — all styling via utilities + tokens in `tailwind.config.ts`.
   No CSS modules, no styled-components. Arbitrary values welcome; generic
   Bootstrap-looking layouts are not.
-- **Framer Motion** — every animation (scroll reveals, staggered children, layout
-  animations, page transitions). Shared variants live in `src/lib/motion.ts` — always
-  reuse/extend these presets instead of inlining one-off variants.
+- **Motion** (`motion` package, the framer-motion successor — import from
+  `motion/react`, never `framer-motion`) — declarative UI animation: scroll reveals,
+  staggered children, AnimatePresence. Shared variants live in `src/lib/motion.ts` —
+  always reuse/extend these presets instead of inlining one-off variants.
+- **GSAP + ScrollTrigger + SplitText** (all free since 3.13) via `@gsap/react`'s
+  `useGSAP` — cinematic sequences: hero type reveals, scrubbed scroll parallax.
+  Import from `src/lib/gsap.ts` (plugins registered there), never from `gsap` directly.
+- **Lenis** — site-wide smooth scrolling, mounted once in
+  `src/components/layout/SmoothScroll.tsx`, synced to GSAP's ticker, disabled for
+  `prefers-reduced-motion`. Same-page `#anchor` clicks are intercepted there.
+- **Division of labor**: Motion for component-level reveals/presence; GSAP for
+  timeline choreography and anything scroll-scrubbed. Don't mix both on one element.
 - **Three.js via React Three Fiber (+ drei)** — 3D used tastefully, not everywhere.
   All R3F scenes live in `src/components/three/` and are **always** loaded with
   `next/dynamic` (`ssr: false`) behind an intersection observer, with a static

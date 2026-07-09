@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion, type Variants } from "motion/react";
 import { fadeUp, stagger, VIEWPORT } from "@/lib/motion";
 
 export function Stagger({

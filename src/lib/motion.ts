@@ -1,4 +1,4 @@
-import type { Variants } from "framer-motion";
+import type { Variants } from "motion/react";
 
 /**
  * Shared motion presets — the single source of animation truth.
