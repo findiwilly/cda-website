@@ -2,17 +2,15 @@
 
 import { useEffect, useRef } from "react";
 import { animate, useInView, useReducedMotion } from "motion/react";
-import { EASE } from "@/lib/motion";
+import { dur, ease } from "@/lib/motion-tokens";
 
 export function Counter({
   value,
   suffix = "",
-  duration = 1.8,
   className,
 }: {
   value: number;
   suffix?: string;
-  duration?: number;
   className?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -27,14 +25,14 @@ export function Counter({
       return;
     }
     const controls = animate(0, value, {
-      duration,
-      ease: EASE,
+      duration: dur.cinematic,
+      ease: ease.out,
       onUpdate: (v) => {
         el.textContent = `${Math.round(v)}${suffix}`;
       },
     });
     return () => controls.stop();
-  }, [inView, reduced, value, suffix, duration]);
+  }, [inView, reduced, value, suffix]);
 
   return (
     <span ref={ref} className={className}>

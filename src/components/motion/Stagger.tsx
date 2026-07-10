@@ -1,26 +1,29 @@
 "use client";
 
 import { motion, type Variants } from "motion/react";
-import { fadeUp, stagger, VIEWPORT } from "@/lib/motion";
+import {
+  fadeUp,
+  staggerParent,
+  staggerParentLoose,
+  viewportOnce,
+} from "@/lib/motion-tokens";
 
 export function Stagger({
   children,
   className,
-  gap = 0.08,
-  delay = 0,
+  loose = false,
 }: {
   children: React.ReactNode;
   className?: string;
-  gap?: number;
-  delay?: number;
+  loose?: boolean;
 }) {
   return (
     <motion.div
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={VIEWPORT}
-      variants={stagger(gap, delay)}
+      viewport={viewportOnce}
+      variants={loose ? staggerParentLoose : staggerParent}
     >
       {children}
     </motion.div>

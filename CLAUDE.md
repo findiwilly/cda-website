@@ -18,12 +18,14 @@ Nothing may look template-like or "AI-generated".
   No CSS modules, no styled-components. Arbitrary values welcome; generic
   Bootstrap-looking layouts are not.
 - **Motion** (`motion` package, the framer-motion successor — import from
-  `motion/react`, never `framer-motion`) — declarative UI animation: scroll reveals,
-  staggered children, AnimatePresence. Shared variants live in `src/lib/motion.ts` —
-  always reuse/extend these presets instead of inlining one-off variants.
-- **GSAP + ScrollTrigger + SplitText** (all free since 3.13) via `@gsap/react`'s
-  `useGSAP` — cinematic sequences: hero type reveals, scrubbed scroll parallax.
-  Import from `src/lib/gsap.ts` (plugins registered there), never from `gsap` directly.
+  `motion/react`, never `framer-motion`) — component entrances, hovers, presence.
+  **Every animation value (duration/easing/stagger/distance) and every variant
+  comes from `src/lib/motion-tokens.ts` — no inline one-offs, ever.** If a variant
+  is missing, add it to the tokens file first. See `.claude/skills/cda-motion-design`.
+- **GSAP + ScrollTrigger** via `@gsap/react`'s `useGSAP` — pinned sections and
+  scroll-scrubbed timelines ONLY; entrances belong to Motion. Import from
+  `src/lib/gsap.ts` (plugins registered there), never from `gsap` directly.
+  `split-type` (+ `letterCascade` token) covers headline splits.
 - **Lenis** — site-wide smooth scrolling, mounted once in
   `src/components/layout/SmoothScroll.tsx`, synced to GSAP's ticker, disabled for
   `prefers-reduced-motion`. Same-page `#anchor` clicks are intercepted there.

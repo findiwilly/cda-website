@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { LanguageToggle } from "./LanguageToggle";
+import { dropIn } from "@/lib/motion-tokens";
 import { SITE } from "@/lib/constants";
 import { cn, waLink } from "@/lib/utils";
 
@@ -95,11 +96,11 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-t border-white/5 lg:hidden"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={dropIn}
+            className="glass absolute inset-x-0 top-full border-t border-white/5 bg-ink-950/90 lg:hidden"
           >
             <div className="flex flex-col gap-1 px-6 py-4">
               {LINKS.map((link) => (

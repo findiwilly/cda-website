@@ -1,7 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
+import { useInView } from "react-intersection-observer";
+import { useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 const LionParticles = dynamic(() => import("./LionParticles"), { ssr: false });
@@ -37,25 +38,9 @@ function LionFallback({ className }: { className?: string }) {
  * fallback once the canvas is on screen.
  */
 export function HeroScene({ className }: { className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [show3d, setShow3d] = useState(false);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShow3d(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "160px" }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+  const reduced = useReducedMotion();
+  const { ref, inView } = useInView({ triggerOnce: true, rootMargin: "160px" });
+  const show3d = inView && !reduced;
 
   return (
     <div ref={ref} className={cn("pointer-events-none", className)} aria-hidden>

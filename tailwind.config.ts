@@ -84,7 +84,7 @@ const config: Config = {
         },
       },
       transitionTimingFunction: {
-        // Apple-ish easings — mirror EASE in src/lib/motion.ts
+        // Apple-ish easings — mirror `ease` in src/lib/motion-tokens.ts
         "out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
         "in-out-smooth": "cubic-bezier(0.65, 0, 0.35, 1)",
       },
