@@ -93,6 +93,11 @@
       "subtitle": "Every service is designed for the Cameroonian market and executed at an international level.",
       "tease": "We keep the method for your free session — here's what's possible."
     },
+    "categories": {
+      "marketing": "Marketing & Growth",
+      "tech": "Web & Software",
+      "ai": "AI & Data"
+    },
     "branding": {
       "name": "Branding & Rebranding",
       "pitch": "An identity that commands respect before you say a word."

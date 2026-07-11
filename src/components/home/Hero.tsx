@@ -4,14 +4,16 @@ import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowDown } from "lucide-react";
-import { gsap, useGSAP } from "@/lib/gsap";
+import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 import {
   clipReveal,
   fadeIn,
   fadeUp,
   staggerParentLoose,
 } from "@/lib/motion-tokens";
+import { heroScrollMix } from "@/lib/scroll-mix";
 import { HeroScene } from "@/components/three/HeroScene";
+import { Link } from "@/i18n/routing";
 import { SITE } from "@/lib/constants";
 import { waLink } from "@/lib/utils";
 
@@ -26,6 +28,16 @@ export function Hero() {
   useGSAP(
     () => {
       if (reduced) return;
+      // Feed scroll progress to the particle scene: lion → data streams
+      const morph = ScrollTrigger.create({
+        trigger: root.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+        onUpdate: (self) => {
+          heroScrollMix.current = self.progress;
+        },
+      });
       gsap.to(".hero-copy", {
         yPercent: -14,
         autoAlpha: 0.1,
@@ -48,6 +60,10 @@ export function Hero() {
           scrub: true,
         },
       });
+      return () => {
+        morph.kill();
+        heroScrollMix.current = 0;
+      };
     },
     { scope: root, dependencies: [reduced] }
   );
@@ -140,12 +156,12 @@ export function Hero() {
             >
               {cta("bookFreeSession")}
             </a>
-            <a
-              href="#industries"
+            <Link
+              href="/industries"
               className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3.5 text-sm font-medium text-ink-100 transition-colors duration-300 hover:border-white/40 hover:bg-white/5"
             >
               {cta("exploreIndustries")}
-            </a>
+            </Link>
           </motion.div>
 
           <motion.p

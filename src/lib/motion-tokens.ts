@@ -127,6 +127,17 @@ export const clipReveal = {
   },
 } as const;
 
+// SVG stroke draw (constellations, diagrams) — a page's cinematic
+// moment when used; pair with fadeIn nodes inside a staggerParent.
+export const drawLine = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: {
+    pathLength: 1,
+    opacity: 1,
+    transition: { duration: dur.cinematic, ease: ease.out },
+  },
+} as const;
+
 // Dropdown/overlay panels (mobile menu). Enters from just above its
 // resting spot; exits quicker and quieter, per house rule 2.
 export const dropIn = {

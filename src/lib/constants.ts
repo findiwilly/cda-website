@@ -41,6 +41,40 @@ export const SERVICE_SLUGS = [
 
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];
 
+/** Services page: category panels for the pinned horizontal journey */
+export const SERVICE_CATEGORIES = [
+  {
+    key: "marketing",
+    slugs: [
+      "branding",
+      "digital-strategy",
+      "social-media-marketing",
+      "content-marketing",
+      "email-sms-marketing",
+      "experiential-marketing",
+      "billboard-led-advertising",
+    ],
+  },
+  {
+    key: "tech",
+    slugs: ["web-development", "custom-software", "it-consulting", "e-invitations"],
+  },
+  {
+    key: "ai",
+    slugs: ["ai-automation", "seo-geo-aeo", "data-analytics"],
+  },
+] as const;
+
+/** Core levers highlighted on every industry page */
+export const INDUSTRY_CORE_SERVICES: readonly ServiceSlug[] = [
+  "ai-automation",
+  "web-development",
+  "branding",
+  "social-media-marketing",
+  "seo-geo-aeo",
+  "data-analytics",
+] as const;
+
 /** Subset shown in the Home services preview grid */
 export const FEATURED_SERVICES: readonly ServiceSlug[] = [
   "branding",

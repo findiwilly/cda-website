@@ -93,6 +93,11 @@
       "subtitle": "Chaque service est pensé pour le marché camerounais et exécuté au niveau international.",
       "tease": "On garde la méthode pour votre session gratuite — voici ce qui est possible."
     },
+    "categories": {
+      "marketing": "Marketing & Croissance",
+      "tech": "Web & Logiciels",
+      "ai": "IA & Données"
+    },
     "branding": {
       "name": "Branding & Rebranding",
       "pitch": "Une identité qui impose le respect avant même que vous parliez."
