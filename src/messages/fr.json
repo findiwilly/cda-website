@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Cameroon Digital Agency — Votre partenaire digital à Yaoundé",
-    "description": "CDA transforme les PME camerounaises avec l'IA, le web et le marketing digital de classe mondiale. Basés à Yaoundé, présents partout en Afrique francophone."
+    "description": "L'agence de Yaoundé qui met le digital et l'IA au travail pour votre entreprise. Votre client vous cherche sur son téléphone — CDA fait en sorte qu'il vous trouve."
   },
   "nav": {
     "home": "Accueil",
@@ -24,7 +24,7 @@
     "hero": {
       "eyebrow": "Agence de transformation digitale IA — Yaoundé, Cameroun",
       "title": "Votre entreprise mérite une présence digitale de <accent>classe mondiale</accent>.",
-      "subtitle": "Marques fortes, sites rapides, automatisations IA. CDA fait grandir les PME camerounaises — de Yaoundé à toute l'Afrique francophone.",
+      "subtitle": "Votre client vous cherche sur son téléphone. CDA fait en sorte qu'il vous trouve, vous fasse confiance, et vous écrive sur WhatsApp.",
       "proof": "15 secteurs · Yaoundé & Douala · IA intégrée"
     },
     "stats": {
@@ -53,7 +53,7 @@
     "services": {
       "eyebrow": "Nos services",
       "title": "Tout ce qu'il faut pour dominer votre marché",
-      "subtitle": "De la marque à l'IA : une seule équipe senior, un seul standard d'exécution.",
+      "subtitle": "Une seule équipe senior, du logo au chatbot. Vous n'expliquez votre business qu'une fois.",
       "viewAll": "Voir tous les services"
     },
     "industriesPreview": {
@@ -93,6 +93,11 @@
       "subtitle": "Chaque service est pensé pour le marché camerounais et exécuté au niveau international.",
       "tease": "On garde la méthode pour votre session gratuite — voici ce qui est possible."
     },
+    "categories": {
+      "marketing": "Marketing & Croissance",
+      "tech": "Web & Logiciels",
+      "ai": "IA & Données"
+    },
     "branding": {
       "name": "Branding & Rebranding",
       "pitch": "Une identité qui impose le respect avant même que vous parliez."
@@ -123,7 +128,7 @@
     },
     "web-development": {
       "name": "Développement web",
-      "pitch": "Des sites rapides et élégants, pensés pour le mobile camerounais."
+      "pitch": "Votre site charge vite même en 3G, et s'affiche d'abord pour le téléphone."
     },
     "custom-software": {
       "name": "Logiciels sur mesure",

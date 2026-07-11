@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { MapPin, MessageCircle } from "lucide-react";
-import { SITE } from "@/lib/constants";
+import { Link } from "@/i18n/routing";
+import { NAV_ITEMS, SITE } from "@/lib/constants";
 import { waLink } from "@/lib/utils";
 
 export function Footer() {
@@ -37,20 +38,14 @@ export function Footer() {
               {t("explore")}
             </p>
             <ul className="mt-4 space-y-3 text-sm">
-              {(
-                [
-                  { key: "services", href: "#services" },
-                  { key: "industries", href: "#industries" },
-                  { key: "contact", href: "#contact" },
-                ] as const
-              ).map((link) => (
-                <li key={link.key}>
-                  <a
-                    href={link.href}
+              {NAV_ITEMS.map((item) => (
+                <li key={item.key}>
+                  <Link
+                    href={item.href}
                     className="text-ink-200 transition-colors hover:text-white"
                   >
-                    {nav(link.key)}
-                  </a>
+                    {nav(item.key)}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -71,6 +66,14 @@ export function Footer() {
                   <MessageCircle className="h-4 w-4 text-cdagreen-bright" />
                   +237 6 50 07 78 12
                 </a>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-ink-200 transition-colors hover:text-white"
+                >
+                  {nav("bookSession")}
+                </Link>
               </li>
             </ul>
           </div>

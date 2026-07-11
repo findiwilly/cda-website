@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Lenis from "lenis";
+import { MotionConfig } from "motion/react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
 declare global {
@@ -48,5 +49,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
-  return <>{children}</>;
+  // reducedMotion="user": Motion collapses transforms to opacity-only for
+  // prefers-reduced-motion visitors (house rule 4 in motion-tokens.ts)
+  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
 }

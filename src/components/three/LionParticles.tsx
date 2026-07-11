@@ -3,6 +3,7 @@
 import { useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { heroScrollMix } from "@/lib/scroll-mix";
 
 /**
  * Particle field forming CDA's geometric lion. The mask is drawn once on an
@@ -93,10 +94,22 @@ function buildLion(count: number, eyeCount: number) {
 
   const total = count + eyeCount;
   const positions = new Float32Array(total * 3);
+  const baseX = new Float32Array(total);
+  const baseY = new Float32Array(total);
   const baseZ = new Float32Array(total);
+  // Scroll morph target: particles re-form into vertical data streams
+  const streamX = new Float32Array(total);
+  const streamY = new Float32Array(total);
   const colors = new Float32Array(total * 3);
   const phase = new Float32Array(total);
   const speed = new Float32Array(total);
+
+  const columns = 16;
+  for (let i = 0; i < total; i++) {
+    const col = i % columns;
+    streamX[i] = ((col - (columns - 1) / 2) / ((columns - 1) / 2)) * 2.6 + (Math.random() - 0.5) * 0.12;
+    streamY[i] = (Math.random() - 0.5) * 3.4;
+  }
 
   const green = new THREE.Color("#00C08B");
   const yellow = new THREE.Color("#FCD116");
@@ -108,6 +121,8 @@ function buildLion(count: number, eyeCount: number) {
     positions[i * 3 + 1] = -(py / SIZE - 0.5) * SPREAD;
     const z = (Math.random() - 0.5) * 0.3;
     positions[i * 3 + 2] = z;
+    baseX[i] = positions[i * 3];
+    baseY[i] = positions[i * 3 + 1];
     baseZ[i] = z;
 
     const r = Math.random();
@@ -133,6 +148,8 @@ function buildLion(count: number, eyeCount: number) {
     positions[i * 3 + 1] = -(py / SIZE - 0.5) * SPREAD;
     const z = (Math.random() - 0.5) * 0.15;
     positions[i * 3 + 2] = z;
+    baseX[i] = positions[i * 3];
+    baseY[i] = positions[i * 3 + 1];
     baseZ[i] = z;
     colors[i * 3] = yellow.r;
     colors[i * 3 + 1] = yellow.g;
@@ -141,7 +158,7 @@ function buildLion(count: number, eyeCount: number) {
     speed[i] = 1.2 + Math.random() * 0.8;
   }
 
-  return { positions, baseZ, colors, phase, speed, total };
+  return { positions, baseX, baseY, baseZ, streamX, streamY, colors, phase, speed, total };
 }
 
 function LionPoints({ count = 4200, eyeCount = 150 }) {
@@ -160,11 +177,22 @@ function LionPoints({ count = 4200, eyeCount = 150 }) {
     if (!points) return;
     const t = clock.elapsedTime;
 
-    // Per-particle depth shimmer
+    // Scroll morph: lion (mix=0) dissolves into flowing data streams (mix=1)
+    const mix = heroScrollMix.current;
+    const eased = mix * mix * (3 - 2 * mix); // smoothstep
+
     const pos = points.geometry.attributes.position;
     const arr = pos.array as Float32Array;
+    const flowRange = 3.4;
     for (let i = 0; i < lion.total; i++) {
-      arr[i * 3 + 2] = lion.baseZ[i] + Math.sin(t * lion.speed[i] + lion.phase[i]) * 0.045;
+      // Streams flow downward, wrapping — speed varies per particle
+      let sy = lion.streamY[i] - ((t * lion.speed[i] * 0.35) % flowRange);
+      if (sy < -flowRange / 2) sy += flowRange;
+
+      arr[i * 3] = lion.baseX[i] + (lion.streamX[i] - lion.baseX[i]) * eased;
+      arr[i * 3 + 1] = lion.baseY[i] + (sy - lion.baseY[i]) * eased;
+      arr[i * 3 + 2] =
+        lion.baseZ[i] + Math.sin(t * lion.speed[i] + lion.phase[i]) * 0.045;
     }
     pos.needsUpdate = true;
 

@@ -1,27 +1,19 @@
 import { setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
-import {
-  BarChart3,
-  Bot,
-  Check,
-  Code2,
-  Compass,
-  Gem,
-  Megaphone,
-  MessageCircle,
-  Zap,
-} from "lucide-react";
+import { Check, MessageCircle, Zap } from "lucide-react";
 import { Hero } from "@/components/home/Hero";
 import { Ticker } from "@/components/home/Ticker";
 import { Counter } from "@/components/motion/Counter";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { SERVICE_ICONS } from "@/components/ui/service-icons";
+import { Link } from "@/i18n/routing";
 import {
   FEATURED_SERVICES,
   HOME_STATS,
   INDUSTRY_SLUGS,
   SITE,
-  type ServiceSlug,
 } from "@/lib/constants";
 import { waLink } from "@/lib/utils";
 
@@ -43,31 +35,6 @@ export default function HomePage({
       <Testimonials />
       <FinalCta />
     </main>
-  );
-}
-
-function SectionHeader({
-  eyebrow,
-  title,
-  subtitle,
-}: {
-  eyebrow: string;
-  title: string;
-  subtitle?: string;
-}) {
-  return (
-    <Reveal className="max-w-2xl">
-      <div className="flex items-center gap-4">
-        <span className="h-px w-10 shrink-0 bg-cdagreen-bright" />
-        <p className="text-[0.65rem] uppercase tracking-[0.35em] text-cdagreen-bright sm:text-xs">
-          {eyebrow}
-        </p>
-      </div>
-      <h2 className="mt-5 font-display text-display-md font-bold text-ink-50">
-        {title}
-      </h2>
-      {subtitle && <p className="mt-4 text-ink-300">{subtitle}</p>}
-    </Reveal>
   );
 }
 
@@ -148,17 +115,6 @@ function PowerOffer() {
   );
 }
 
-const SERVICE_ICONS: Partial<
-  Record<ServiceSlug, React.ComponentType<{ className?: string }>>
-> = {
-  branding: Gem,
-  "digital-strategy": Compass,
-  "social-media-marketing": Megaphone,
-  "web-development": Code2,
-  "ai-automation": Bot,
-  "data-analytics": BarChart3,
-};
-
 function ServicesSection() {
   const t = useTranslations("home.services");
   const s = useTranslations("services");
@@ -169,10 +125,13 @@ function ServicesSection() {
 
       <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {FEATURED_SERVICES.map((slug, i) => {
-          const Icon = SERVICE_ICONS[slug] ?? Gem;
+          const Icon = SERVICE_ICONS[slug];
           return (
             <StaggerItem key={slug} className="h-full">
-              <div className="glass group relative h-full rounded-2xl p-7 transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:border-cdagreen/40">
+              <Link
+                href="/services"
+                className="glass group relative block h-full rounded-2xl p-7 transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:border-cdagreen/40"
+              >
                 <span className="absolute right-6 top-6 font-display text-sm font-semibold text-ink-600">
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -185,14 +144,19 @@ function ServicesSection() {
                 <p className="mt-2 text-sm leading-relaxed text-ink-300">
                   {s(`${slug}.pitch`)}
                 </p>
-              </div>
+              </Link>
             </StaggerItem>
           );
         })}
       </Stagger>
 
-      <Reveal className="mt-10">
-        <p className="text-center text-sm text-ink-400">{s("intro.tease")}</p>
+      <Reveal className="mt-12 text-center">
+        <Link
+          href="/services"
+          className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3.5 text-sm font-medium text-ink-100 transition-colors duration-300 hover:border-white/40 hover:bg-white/5"
+        >
+          {t("viewAll")}
+        </Link>
       </Reveal>
     </section>
   );
@@ -211,9 +175,10 @@ function IndustriesSection() {
       <Reveal className="mt-12">
         <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-6 [scrollbar-width:thin] sm:px-[max(1.5rem,calc((100vw-72rem)/2+1.5rem))]">
           {INDUSTRY_SLUGS.map((slug, i) => (
-            <article
+            <Link
               key={slug}
-              className="glass w-[17rem] shrink-0 snap-start rounded-2xl p-6 transition-colors duration-300 hover:border-cdayellow/30"
+              href={`/industries/${slug}`}
+              className="glass block w-[17rem] shrink-0 snap-start rounded-2xl p-6 transition-colors duration-300 hover:border-cdayellow/30"
             >
               <span className="font-display text-sm font-semibold text-ink-600">
                 {String(i + 1).padStart(2, "0")}
@@ -224,9 +189,18 @@ function IndustriesSection() {
               <p className="mt-3 text-sm leading-relaxed text-ink-300">
                 {ind(`${slug}.hook`)}
               </p>
-            </article>
+            </Link>
           ))}
         </div>
+      </Reveal>
+
+      <Reveal className="mt-6 text-center">
+        <Link
+          href="/industries"
+          className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3.5 text-sm font-medium text-ink-100 transition-colors duration-300 hover:border-white/40 hover:bg-white/5"
+        >
+          {t("viewAll")}
+        </Link>
       </Reveal>
     </section>
   );

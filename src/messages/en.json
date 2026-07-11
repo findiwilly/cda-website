@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Cameroon Digital Agency — Your digital partner in Yaoundé",
-    "description": "CDA transforms Cameroonian SMEs with world-class AI, web and digital marketing. Based in Yaoundé, working across Francophone Africa."
+    "description": "The Yaoundé agency that puts digital and AI to work for your business. Your customer is looking for you on their phone — CDA makes sure they find you."
   },
   "nav": {
     "home": "Home",
@@ -24,7 +24,7 @@
     "hero": {
       "eyebrow": "AI digital transformation agency — Yaoundé, Cameroon",
       "title": "Your business deserves a <accent>world-class</accent> digital presence.",
-      "subtitle": "Strong brands, fast websites, AI automation. CDA grows Cameroonian SMEs — from Yaoundé across Francophone Africa.",
+      "subtitle": "Your customer is looking for you on their phone. CDA makes sure they find you, trust you, and message you on WhatsApp.",
       "proof": "15 industries · Yaoundé & Douala · AI inside"
     },
     "stats": {
@@ -53,7 +53,7 @@
     "services": {
       "eyebrow": "Our services",
       "title": "Everything you need to own your market",
-      "subtitle": "From brand to AI: one senior team, one standard of execution.",
+      "subtitle": "One senior team, from logo to chatbot. You explain your business once.",
       "viewAll": "View all services"
     },
     "industriesPreview": {
@@ -93,6 +93,11 @@
       "subtitle": "Every service is designed for the Cameroonian market and executed at an international level.",
       "tease": "We keep the method for your free session — here's what's possible."
     },
+    "categories": {
+      "marketing": "Marketing & Growth",
+      "tech": "Web & Software",
+      "ai": "AI & Data"
+    },
     "branding": {
       "name": "Branding & Rebranding",
       "pitch": "An identity that commands respect before you say a word."
@@ -123,7 +128,7 @@
     },
     "web-development": {
       "name": "Web Development",
-      "pitch": "Fast, elegant sites built for mobile-first Cameroon."
+      "pitch": "Your site loads fast even on 3G, and it's built phone-first."
     },
     "custom-software": {
       "name": "Custom Software",

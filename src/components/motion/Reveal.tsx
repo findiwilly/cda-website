@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
-import { fadeUp, VIEWPORT } from "@/lib/motion";
+import { motion, type Variants } from "motion/react";
+import { fadeUp, viewportOnce } from "@/lib/motion-tokens";
 
 export function Reveal({
   children,
@@ -17,7 +17,7 @@ export function Reveal({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={VIEWPORT}
+      viewport={viewportOnce}
       variants={variants}
     >
       {children}
