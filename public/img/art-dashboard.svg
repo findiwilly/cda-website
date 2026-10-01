@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" fill="none" role="img" aria-label="Illustration of an analytics dashboard with rising traffic lines">
+  <!--
+    CDA — "what the work looks like": a stylised analytics panel.
+    Authored illustration rather than a screenshot, so nothing here can leak a
+    real client's data and the palette stays exactly on-brand.
+  -->
+  <defs>
+    <linearGradient id="dm-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#17171A" />
+      <stop offset="100%" stop-color="#0A0A0B" />
+    </linearGradient>
+    <linearGradient id="dm-area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00A67E" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#00A67E" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="dm-area2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FCD116" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#FCD116" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="720" fill="url(#dm-bg)" />
+
+  <!-- Window chrome -->
+  <rect x="48" y="48" width="864" height="624" rx="24" fill="#101012" stroke="#FFFFFF" stroke-opacity="0.08" />
+  <path d="M48 108h864" stroke="#FFFFFF" stroke-opacity="0.08" />
+  <circle cx="84" cy="78" r="7" fill="#CE1126" fill-opacity="0.7" />
+  <circle cx="108" cy="78" r="7" fill="#FCD116" fill-opacity="0.7" />
+  <circle cx="132" cy="78" r="7" fill="#00A67E" fill-opacity="0.7" />
+
+  <!-- KPI tiles -->
+  <g>
+    <rect x="88" y="148" width="240" height="112" rx="14" fill="#FFFFFF" fill-opacity="0.03" stroke="#FFFFFF" stroke-opacity="0.06" />
+    <rect x="360" y="148" width="240" height="112" rx="14" fill="#FFFFFF" fill-opacity="0.03" stroke="#FFFFFF" stroke-opacity="0.06" />
+    <rect x="632" y="148" width="240" height="112" rx="14" fill="#FFFFFF" fill-opacity="0.03" stroke="#FFFFFF" stroke-opacity="0.06" />
+  </g>
+
+  <!-- KPI values: blocky bars instead of digits, so no fake number is implied. -->
+  <g fill="#D6D6DC" fill-opacity="0.85">
+    <rect x="112" y="196" width="96" height="16" rx="4" />
+    <rect x="112" y="226" width="56" height="8" rx="4" fill="#00A67E" />
+    <rect x="384" y="196" width="72" height="16" rx="4" />
+    <rect x="384" y="226" width="88" height="8" rx="4" fill="#FCD116" />
+    <rect x="656" y="196" width="120" height="16" rx="4" />
+    <rect x="656" y="226" width="44" height="8" rx="4" fill="#00A67E" />
+  </g>
+
+  <!-- Chart frame + baseline grid -->
+  <rect x="88" y="300" width="560" height="332" rx="14" fill="#FFFFFF" fill-opacity="0.02" stroke="#FFFFFF" stroke-opacity="0.06" />
+  <g stroke="#FFFFFF" stroke-opacity="0.05">
+    <path d="M112 384h512M112 452h512M112 520h512M112 588h512" />
+  </g>
+
+  <!-- Rising series (primary) -->
+  <path d="M112 580C180 566 210 540 250 528s70-10 100-44 62-84 104-96 70 8 106-22 44-58 64-72"
+        stroke="#00A67E" stroke-width="3" stroke-linecap="round" fill="none" />
+  <path d="M112 580C180 566 210 540 250 528s70-10 100-44 62-84 104-96 70 8 106-22 44-58 64-72V600H112Z"
+        fill="url(#dm-area)" />
+
+  <!-- Secondary, flatter series -->
+  <path d="M112 596C190 590 226 578 272 570s78 2 112-10 66-38 106-40 72 6 110-8"
+        stroke="#FCD116" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.8" fill="none" />
+  <path d="M112 596C190 590 226 578 272 570s78 2 112-10 66-38 106-40 72 6 110-8V600H112Z"
+        fill="url(#dm-area2)" />
+
+  <!-- Data points on the primary series -->
+  <g fill="#00A67E" stroke="#0A0A0B" stroke-width="3">
+    <circle cx="250" cy="528" r="6" />
+    <circle cx="350" cy="484" r="6" />
+    <circle cx="454" cy="388" r="6" />
+    <circle cx="560" cy="366" r="6" />
+    <circle cx="624" cy="294" r="6" />
+  </g>
+
+  <!-- Side panel: channel breakdown -->
+  <rect x="680" y="300" width="192" height="332" rx="14" fill="#FFFFFF" fill-opacity="0.02" stroke="#FFFFFF" stroke-opacity="0.06" />
+  <g>
+    <rect x="704" y="332" width="120" height="10" rx="4" fill="#D6D6DC" fill-opacity="0.55" />
+    <rect x="704" y="368" width="144" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.10" />
+    <rect x="704" y="368" width="104" height="8" rx="4" fill="#00A67E" fill-opacity="0.8" />
+    <rect x="704" y="404" width="144" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.10" />
+    <rect x="704" y="404" width="76" height="8" rx="4" fill="#FCD116" fill-opacity="0.75" />
+    <rect x="704" y="440" width="144" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.10" />
+    <rect x="704" y="440" width="48" height="8" rx="4" fill="#00A67E" fill-opacity="0.55" />
+    <rect x="704" y="476" width="144" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.10" />
+    <rect x="704" y="476" width="92" height="8" rx="4" fill="#CE1126" fill-opacity="0.6" />
+  </g>
+  <rect x="704" y="556" width="144" height="52" rx="10" fill="#00A67E" fill-opacity="0.14" stroke="#00A67E" stroke-opacity="0.35" />
+</svg>

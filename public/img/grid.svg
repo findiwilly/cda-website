@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none">
+  <!--
+    CDA — fine grid, tiled as a section backdrop.
+    Kept deliberately faint: at the opacities used in SectionBackdrop this reads
+    as texture, not as a grid. Stroke width 1 at 120px tile scale lands on
+    roughly 0.5px at typical rendering, so it must not be scaled up.
+  -->
+  <g stroke="#FFFFFF" stroke-opacity="0.9" stroke-width="1">
+    <path d="M0 0.5H120M0 30.5H120M0 60.5H120M0 90.5H120" />
+    <path d="M0.5 0V120M30.5 0V120M60.5 0V120M90.5 0V120" />
+  </g>
+  <!-- A single green cell anchors the pattern so it does not read as graph paper. -->
+  <rect x="90" y="0" width="30" height="30" fill="#007A5E" fill-opacity="0.16" />
+</svg>

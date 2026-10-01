@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="880" viewBox="0 0 720 880" fill="none" role="img" aria-label="Illustration of a WhatsApp conversation being handled by an AI agent on a phone">
+  <!--
+    CDA — "the agent answers while you sleep": a stylised phone with a
+    conversation thread. Deliberately generic bubbles — no client data, no real
+    names, and no claim about what the product actually says.
+  -->
+  <defs>
+    <linearGradient id="ph-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1F1F24" />
+      <stop offset="100%" stop-color="#0A0A0B" />
+    </linearGradient>
+    <linearGradient id="ph-rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00A67E" stop-opacity="0.7" />
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#FCD116" stop-opacity="0.5" />
+    </linearGradient>
+  </defs>
+
+  <rect width="720" height="880" fill="url(#ph-bg)" />
+
+  <!-- Ambient glow behind the device, matching the site's section glows. -->
+  <circle cx="360" cy="300" r="300" fill="#00A67E" fill-opacity="0.10" />
+  <circle cx="560" cy="700" r="220" fill="#FCD116" fill-opacity="0.06" />
+
+  <!-- Device -->
+  <rect x="140" y="80" width="440" height="720" rx="56" fill="#101012" stroke="url(#ph-rim)" stroke-width="2" />
+  <rect x="156" y="96" width="408" height="688" rx="46" fill="#0A0A0B" />
+  <rect x="300" y="116" width="120" height="22" rx="11" fill="#17171A" />
+
+  <!-- Chat header -->
+  <rect x="176" y="156" width="368" height="64" rx="12" fill="#FFFFFF" fill-opacity="0.04" />
+  <circle cx="212" cy="188" r="18" fill="#007A5E" fill-opacity="0.5" />
+  <circle cx="212" cy="188" r="6" fill="#00A67E" />
+  <rect x="244" y="178" width="112" height="9" rx="4" fill="#D6D6DC" fill-opacity="0.8" />
+  <rect x="244" y="196" width="76" height="7" rx="3.5" fill="#7C7C87" />
+  <circle cx="520" cy="188" r="5" fill="#00A67E" fill-opacity="0.9" />
+
+  <!-- Incoming bubble -->
+  <rect x="176" y="244" width="220" height="76" rx="14" fill="#1F1F24" />
+  <rect x="192" y="262" width="176" height="8" rx="4" fill="#ABABB4" fill-opacity="0.7" />
+  <rect x="192" y="280" width="140" height="8" rx="4" fill="#ABABB4" fill-opacity="0.5" />
+  <rect x="192" y="298" width="104" height="8" rx="4" fill="#ABABB4" fill-opacity="0.35" />
+
+  <!-- Outgoing bubble -->
+  <rect x="304" y="340" width="240" height="58" rx="14" fill="#007A5E" fill-opacity="0.85" />
+  <rect x="320" y="358" width="196" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.85" />
+  <rect x="320" y="376" width="120" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.6" />
+
+  <!-- Agent "thinking" indicator: three dots, the classic signal. -->
+  <rect x="176" y="418" width="88" height="44" rx="14" fill="#1F1F24" />
+  <circle cx="204" cy="440" r="5" fill="#00A67E" fill-opacity="0.9" />
+  <circle cx="220" cy="440" r="5" fill="#00A67E" fill-opacity="0.6" />
+  <circle cx="236" cy="440" r="5" fill="#00A67E" fill-opacity="0.35" />
+
+  <!-- Escalation to a human -->
+  <rect x="304" y="482" width="240" height="76" rx="14" fill="#FCD116" fill-opacity="0.16" stroke="#FCD116" stroke-opacity="0.35" />
+  <rect x="320" y="500" width="176" height="8" rx="4" fill="#FCD116" fill-opacity="0.9" />
+  <rect x="320" y="518" width="132" height="8" rx="4" fill="#FCD116" fill-opacity="0.6" />
+  <rect x="320" y="536" width="88" height="8" rx="4" fill="#FCD116" fill-opacity="0.4" />
+
+  <!-- Overnight banner -->
+  <rect x="176" y="586" width="368" height="52" rx="12" fill="#00A67E" fill-opacity="0.12" stroke="#00A67E" stroke-opacity="0.3" />
+  <circle cx="204" cy="612" r="8" fill="none" stroke="#00A67E" stroke-width="2" />
+  <path d="M204 608v4l3 2" stroke="#00A67E" stroke-width="2" stroke-linecap="round" />
+  <rect x="224" y="606" width="180" height="9" rx="4.5" fill="#D6D6DC" fill-opacity="0.7" />
+
+  <!-- Composer -->
+  <rect x="176" y="660" width="368" height="72" rx="24" fill="#17171A" stroke="#FFFFFF" stroke-opacity="0.08" />
+  <rect x="200" y="688" width="200" height="10" rx="5" fill="#55555F" fill-opacity="0.6" />
+  <circle cx="500" cy="696" r="20" fill="#007A5E" />
+  <path d="M492 696h16M501 689l7 7-7 7" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

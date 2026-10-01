@@ -61,6 +61,112 @@
   }
 }
 
+/*
+ * Long-form article body.
+ *
+ * Written by hand rather than pulling in @tailwindcss/typography: the site needs
+ * one narrow set of rules, and the typography plugin would ship a large opinionated
+ * reset that fights the dark theme instead of extending it. Only the tags
+ * `lib/markdown.ts` allows through the sanitizer appear below, so anything styled
+ * here is guaranteed reachable from an admin-authored post.
+ */
+@layer components {
+  .prose-cda {
+    @apply text-[1.0625rem] leading-[1.75] text-ink-200;
+  }
+
+  .prose-cda > * + * {
+    @apply mt-6;
+  }
+
+  .prose-cda h2 {
+    @apply mt-14 scroll-mt-28 font-display text-2xl font-semibold leading-tight text-ink-50 sm:text-3xl;
+  }
+
+  .prose-cda h3 {
+    @apply mt-10 scroll-mt-28 font-display text-xl font-semibold leading-tight text-ink-50;
+  }
+
+  .prose-cda h4 {
+    @apply mt-8 scroll-mt-28 font-display text-lg font-semibold text-ink-50;
+  }
+
+  .prose-cda strong {
+    @apply font-semibold text-ink-50;
+  }
+
+  .prose-cda a {
+    @apply font-medium text-cdagreen-bright underline decoration-cdagreen-bright/40 underline-offset-4 transition-colors duration-300 hover:decoration-cdagreen-bright;
+  }
+
+  .prose-cda ul,
+  .prose-cda ol {
+    @apply pl-6;
+  }
+
+  .prose-cda ul {
+    @apply list-disc;
+  }
+
+  .prose-cda ol {
+    @apply list-decimal;
+  }
+
+  .prose-cda li + li {
+    @apply mt-3;
+  }
+
+  /* Markers pick up the green accent so a list reads as CDA without shouting. */
+  .prose-cda li::marker {
+    @apply text-cdagreen-bright;
+  }
+
+  .prose-cda blockquote {
+    @apply border-l-2 border-cdagreen/60 bg-white/[0.02] py-2 pl-6 pr-4 italic text-ink-100;
+  }
+
+  .prose-cda blockquote p + p {
+    @apply mt-4;
+  }
+
+  .prose-cda code {
+    @apply rounded bg-white/[0.06] px-1.5 py-0.5 font-mono text-[0.9em] text-cdayellow;
+  }
+
+  .prose-cda pre {
+    @apply overflow-x-auto rounded-xl border border-white/[0.06] bg-ink-900 p-5 text-sm leading-relaxed;
+  }
+
+  .prose-cda pre code {
+    @apply bg-transparent p-0 text-ink-100;
+  }
+
+  .prose-cda img {
+    @apply w-full rounded-xl border border-white/[0.06];
+  }
+
+  .prose-cda figcaption {
+    @apply mt-3 text-center text-sm text-ink-400;
+  }
+
+  .prose-cda hr {
+    @apply border-white/10;
+  }
+
+  .prose-cda table {
+    @apply w-full border-collapse text-left text-sm;
+  }
+
+  .prose-cda th,
+  .prose-cda td {
+    @apply border-b border-white/10 px-3 py-3 align-top;
+  }
+
+  .prose-cda th {
+    @apply font-semibold text-ink-50;
+  }
+}
+
 @keyframes lion-in {
   from {
     opacity: 0;

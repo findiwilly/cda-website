@@ -9,6 +9,8 @@ import { LanguageToggle } from "./LanguageToggle";
 import { dropIn } from "@/lib/motion-tokens";
 import { cn } from "@/lib/utils";
 
+// Mirrors NAV_ITEMS minus `contact`, which is rendered separately as the
+// highlighted CTA on the right.
 const LINKS = [
   { key: "services", href: "/services" },
   { key: "aiAgents", href: "/ai-agents" },
@@ -16,6 +18,8 @@ const LINKS = [
   { key: "about", href: "/about" },
   { key: "resources", href: "/resources" },
   { key: "blog", href: "/blog" },
+  { key: "testimonials", href: "/testimonials" },
+  { key: "faq", href: "/faq" },
 ] as const;
 
 export function Navbar() {
@@ -56,8 +60,9 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop links */}
-        <div className="hidden items-center gap-7 lg:flex">
+        {/* Desktop links. Tighter spacing at `lg`, roomier from `xl` — eight
+            links plus the CTA only fit comfortably on wide viewports. */}
+        <div className="hidden items-center gap-6 lg:flex xl:gap-7">
           {LINKS.map((link) => {
             const active = pathname.startsWith(link.href);
             return (
@@ -65,7 +70,7 @@ export function Navbar() {
                 key={link.key}
                 href={link.href}
                 className={cn(
-                  "group relative text-sm transition-colors duration-300 hover:text-white",
+                  "group relative whitespace-nowrap text-sm transition-colors duration-300 hover:text-white",
                   active ? "text-white" : "text-ink-200"
                 )}
               >

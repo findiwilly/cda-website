@@ -12,7 +12,9 @@
     "blog": "Blog",
     "resources": "Resources",
     "contact": "Contact",
-    "bookSession": "Book a Session"
+    "bookSession": "Book a Session",
+    "testimonials": "Testimonials",
+    "faq": "FAQ"
   },
   "cta": {
     "bookFreeSession": "Book your free strategy session",
@@ -272,21 +274,51 @@
       "body": "The CDA virtual C-Suite is deployed on request only, for businesses that demand magnificent results. Every deployment is calibrated to your audience, your segment, and your goals."
     },
     "agents": {
-      "cso": { "title": "Chief Strategy Officer", "desc": "Reads your market and charts the course." },
-      "cmo": { "title": "Chief Marketing Officer", "desc": "Orchestrates your campaigns and content." },
-      "coo": { "title": "Chief Operations Officer", "desc": "Streamlines your daily operations." },
-      "cto": { "title": "Chief Technology Officer", "desc": "Watches over your stack and your data." },
-      "cfo": { "title": "Chief Financial Officer", "desc": "Tracks your margins and cash flow." },
-      "cco": { "title": "Chief Customer Officer", "desc": "Cares for every customer, 24/7." }
+      "cso": {
+        "title": "Chief Strategy Officer",
+        "desc": "Reads your market and charts the course."
+      },
+      "cmo": {
+        "title": "Chief Marketing Officer",
+        "desc": "Orchestrates your campaigns and content."
+      },
+      "coo": {
+        "title": "Chief Operations Officer",
+        "desc": "Streamlines your daily operations."
+      },
+      "cto": {
+        "title": "Chief Technology Officer",
+        "desc": "Watches over your stack and your data."
+      },
+      "cfo": {
+        "title": "Chief Financial Officer",
+        "desc": "Tracks your margins and cash flow."
+      },
+      "cco": {
+        "title": "Chief Customer Officer",
+        "desc": "Cares for every customer, 24/7."
+      }
     },
     "how": {
       "title": "Co-pilots for your stack",
       "p1": "Our agents don't replace your team: they multiply it. Connected to your tools — WhatsApp, email, CRM, spreadsheets — they execute, measure, and learn.",
-      "p2": "You keep the wheel. They keep the pace."
+      "p2": "You keep the wheel. They keep the pace.",
+      "eyebrow": "Co-pilot"
     },
     "cta": {
       "title": "Request a deployment.",
       "subtitle": "By application only. Let's talk about your ambitions."
+    },
+    "onAPhone": {
+      "eyebrow": "In the field",
+      "title": "It answers while you sleep",
+      "imageAlt": "Illustration of a phone showing a WhatsApp conversation: a customer asks a question at night, the agent replies, then hands the conversation to a human.",
+      "caption": "The channel your customers already use. No download, no app to install.",
+      "p1": "A CDA agent lives in WhatsApp, because that's where your customers already write. No app to install, no number to memorise: they send a message, they get an answer.",
+      "p2": "It qualifies the request, collects what your team needs to act, and passes on only the conversations that deserve a human. You stay in control of what is said in your name.",
+      "b1": "Instant replies, including Sunday evenings and 3 a.m.",
+      "b2": "Escalates to a human the moment a request exceeds what it can handle.",
+      "b3": "Every conversation archived, and reusable to train the agent later."
     }
   },
   "about": {
@@ -317,6 +349,26 @@
       "values": {
         "title": "Our values",
         "body": "Excellence without excuses. Radical honesty. Results first. Local pride, world standard."
+      }
+    },
+    "method": {
+      "eyebrow": "The method",
+      "title": "Measure, adjust, repeat",
+      "imageAlt": "Illustration of an analytics dashboard: two rising lines, upward-trending metrics, and a channel breakdown panel.",
+      "caption": "Every project starts by deciding what will be measured. Without that, 'it worked' is an impression rather than a result.",
+      "p1": "We don't hand over a website and disappear. Before anything is built, we agree on the three numbers that will tell us whether the investment paid off — qualified enquiries, response time, conversion rate. Nothing else counts.",
+      "p2": "Then we measure monthly, send you the numbers, and fix whatever isn't working. It's less dramatic than a new brand identity every quarter, and it's why our clients stay an average of two years.",
+      "s1": {
+        "label": "Monthly measurement",
+        "value": "Included"
+      },
+      "s2": {
+        "label": "Reporting",
+        "value": "No extra cost"
+      },
+      "s3": {
+        "label": "Average client tenure",
+        "value": "2 years"
       }
     }
   },
@@ -363,28 +415,26 @@
       "title": "Tech, seen from here",
       "subtitle": "AI, digital and business trends — in Africa and worldwide."
     },
-    "comingSoon": "First articles in the works. Check back soon.",
     "readTime": "min read",
-    "posts": {
-      "p1": {
-        "title": "Generative AI is reaching Cameroonian SMEs — here's what changes",
-        "excerpt": "Chatbots, content, analytics: what AI finally makes accessible to small businesses.",
-        "category": "Artificial intelligence",
-        "readTime": "6"
-      },
-      "p2": {
-        "title": "Mobile Money + e-commerce: the duo unlocking online sales in Cameroon",
-        "excerpt": "MTN MoMo and Orange Money are changing the game. How to plug your shop in.",
-        "category": "E-commerce",
-        "readTime": "5"
-      },
-      "p3": {
-        "title": "Local SEO in Yaoundé and Douala: get found before your competitors",
-        "excerpt": "Google Maps, reviews, voice search: the local visibility kit, explained simply.",
-        "category": "Marketing",
-        "readTime": "7"
-      }
-    }
+    "filters": {
+      "label": "Topics"
+    },
+    "empty": {
+      "title": "The first articles are on their way",
+      "body": "We write about what excites us and what actually helps: applied AI, digital here on the ground, and the numbers that matter. Check back in a few weeks — or ask us your question directly.",
+      "cta": "Write to CDA",
+      "secondary": "See the resources"
+    },
+    "post": {
+      "backToBlog": "All articles",
+      "publishedOn": "Published on",
+      "updatedOn": "Updated on",
+      "inThisArticle": "In this article",
+      "moreFrom": "Worth reading too",
+      "notFound": "This article doesn't exist or is no longer published.",
+      "share": "Share"
+    },
+    "comingSoon": "First articles in the works. Check back soon."
   },
   "contact": {
     "intro": {
@@ -395,7 +445,10 @@
     "booking": {
       "title": "Book a slot directly",
       "body": "30 minutes with a CDA strategist. Free, no commitment.",
-      "button": "Open the calendar"
+      "button": "Open the calendar",
+      "embedTitle": "CDA booking calendar",
+      "openInNewTab": "Open in a new tab",
+      "embedFailed": "The calendar could not load — possibly an unstable connection. Open it in a new tab, or message us on WhatsApp."
     },
     "form": {
       "title": "Or leave us your details",
@@ -416,7 +469,8 @@
       "errors": {
         "name": "Tell us your name.",
         "whatsapp": "Enter a valid Cameroonian number (e.g. 6 50 07 78 12)."
-      }
+      },
+      "errorSummary": "Something is missing:"
     },
     "faq": {
       "title": "The real questions",
@@ -458,6 +512,285 @@
     "whatsappLabel": "Chat with CDA on WhatsApp",
     "waPrefill": "Hello CDA! I'd like to book my free strategy session.",
     "menu": "Menu",
-    "close": "Close"
+    "close": "Close",
+    "scrollDown": "Scroll down"
+  },
+  "notFound": {
+    "eyebrow": "Page not found",
+    "title": "This page doesn't exist",
+    "subtitle": "The link may be old, or the address has changed. Everything worth finding is back home — we'll point you the right way.",
+    "home": "Back home",
+    "contact": "Get in touch"
+  },
+  "legal": {
+    "homeLabel": "Home",
+    "indexLabel": "Contents",
+    "otherDocs": "Other documents",
+    "questionsTitle": "A question about this document?",
+    "questionsBody": "Write to us. A real person reads every message, and we reply within one business day.",
+    "questionsCta": "Contact us",
+    "docs": {
+      "privacy": "Privacy policy",
+      "terms": "Terms of service",
+      "cookies": "Cookie policy"
+    },
+    "privacy": {
+      "eyebrow": "Legal",
+      "updated": "Last updated: January 2026",
+      "meta": {
+        "title": "Privacy policy",
+        "description": "Which data Cameroon Digital Agency collects, why we collect it, and how long we keep it."
+      },
+      "title": "Privacy policy",
+      "intro": "We collect only what we need to answer you and do good work with you. This page says exactly which data, why, and for how long.",
+      "sections": [
+        {
+          "heading": "Who processes your data",
+          "paragraphs": [
+            "Cameroon Digital Agency, established in Yaoundé, Cameroon, is responsible for the processing described here. One person concretely holds that responsibility: the founder. You can reach them directly through the contact form or on WhatsApp."
+          ]
+        },
+        {
+          "heading": "What we collect",
+          "paragraphs": [
+            "Only what you give us voluntarily:"
+          ],
+          "bullets": [
+            "Contact details — name, company name, WhatsApp number, email address.",
+            "The content of your enquiries — what you write in our forms.",
+            "Technical data — pages viewed, so we can see what actually helps.",
+            "Testimonials — name, company and review that you choose to publish."
+          ]
+        },
+        {
+          "heading": "Why we use this data",
+          "paragraphs": [
+            "To answer you, to present our services, and to keep our commitments. That's all. We don't sell your data and we don't share it with third parties for commercial purposes.",
+            "No automated decision-making, no profiling. A human reads every enquiry."
+          ]
+        },
+        {
+          "heading": "How long we keep it",
+          "paragraphs": [
+            "An unconverted lead is kept for three months, then deleted. Project data is kept for the length of the working relationship, then five years — an accounting obligation. A published testimonial stays visible until you ask us to remove it.",
+            "You can shorten any of these periods at any time by asking us."
+          ]
+        },
+        {
+          "heading": "Your rights",
+          "paragraphs": [
+            "See, correct, export or delete your data: all of it is possible, at any time, on request. You can also withdraw consent. We reply within 30 days.",
+            "If you believe our processing is improper, you can lodge a complaint with the competent data protection authority."
+          ]
+        },
+        {
+          "heading": "Security",
+          "paragraphs": [
+            "Your data travels over encrypted connections. It is stored with hosts located in Europe, where data protection regulation applies. Admin access is protected by an encrypted password and a time-limited session."
+          ]
+        },
+        {
+          "heading": "Cookies",
+          "paragraphs": [
+            "The site uses a small number of cookies strictly required to operate. They are listed cookie by cookie in our cookie policy. Nothing here follows you across other sites."
+          ]
+        },
+        {
+          "heading": "Changes",
+          "paragraphs": [
+            "If this policy changes, the date at the top changes with it. Significant changes are flagged on the site."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "eyebrow": "Legal",
+      "updated": "Last updated: January 2026",
+      "meta": {
+        "title": "Terms of service",
+        "description": "The conditions that govern all work between you and Cameroon Digital Agency."
+      },
+      "title": "Terms of service",
+      "intro": "The rules of the game, written plainly. If anything here is unclear, ask before you sign — we would always explain twice rather than end up in court.",
+      "sections": [
+        {
+          "heading": "Scope",
+          "paragraphs": [
+            "These terms govern the services of Cameroon Digital Agency: digital strategy, websites, brand identity, content, advertising, AI automation and related services.",
+            "By entrusting us with a project, you accept these terms. They also apply to the free strategy session, with one exception: nothing is payable there."
+          ]
+        },
+        {
+          "heading": "Quotes, pricing and payment",
+          "paragraphs": [
+            "Every project gets a written quote, itemised, valid for thirty days. The quote is the reference: it sets out the scope, deliverables, timeline and price.",
+            "Payment terms are stated on the quote. We accept MTN Mobile Money, Orange Money and bank transfer. A deposit is required to begin production; it is non-refundable once the first deliverables are done.",
+            "Prices are in Central African CFA francs (XAF). Third-party costs — licences, domain names, hosting, advertising — are passed through to you at cost."
+          ]
+        },
+        {
+          "heading": "Timelines and delivery",
+          "paragraphs": [
+            "Timelines start once we've received the deposit and everything we need from you: content, assets and access. A delay on your side moves the timeline by the same amount.",
+            "We commit to realistic working dates, not to promises. If something unexpected comes up, we tell you immediately and propose a plan B — never a bad surprise at the end of a project."
+          ]
+        },
+        {
+          "heading": "Revisions",
+          "paragraphs": [
+            "Each stage includes the number of revisions stated on the quote. Beyond that, additional work is billed at our current hourly rate — always quoted and approved before we commit to it."
+          ]
+        },
+        {
+          "heading": "Your obligations",
+          "paragraphs": [
+            "You provide the content, logos, access and information we need, and you confirm you hold the rights to it. You name a single point of contact, available within reasonable time.",
+            "We deliver original work. We will not reuse code or content you don't own the rights to."
+          ]
+        },
+        {
+          "heading": "Intellectual property",
+          "paragraphs": [
+            "On completion of the project and full settlement of all invoices, the usage rights to the deliverables transfer to you.",
+            "We keep the right to show the project in our portfolio and communications, unless you explicitly ask us not to."
+          ]
+        },
+        {
+          "heading": "Limitation of liability",
+          "paragraphs": [
+            "We do everything reasonably possible to meet our commitments. We cannot, however, guarantee a specific commercial outcome: results also depend on your market, your offer and factors outside our control.",
+            "Our liability cannot exceed the total amount you have paid us for the project concerned."
+          ]
+        },
+        {
+          "heading": "Cancellation and refunds",
+          "paragraphs": [
+            "You may stop a project at any time by notifying us in writing. Work already done and already committed to is billed; any deposit is non-refundable beyond the work carried out.",
+            "We may suspend a service if the project becomes impossible to deliver, or if agreed payment is not made. In that case we tell you first and we always look for a solution together."
+          ]
+        },
+        {
+          "heading": "Governing law and disputes",
+          "paragraphs": [
+            "These terms are governed by Cameroonian law. Any dispute falls under the courts of Yaoundé.",
+            "We would always rather talk it through. Write to us first: most misunderstandings are settled in a single message."
+          ]
+        },
+        {
+          "heading": "Changes",
+          "paragraphs": [
+            "These terms may evolve. The version that applies is the one in force when the quote is signed."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "eyebrow": "Legal",
+      "updated": "Last updated: January 2026",
+      "meta": {
+        "title": "Cookie policy",
+        "description": "What the site stores in your browser, and why — no waffle."
+      },
+      "title": "Cookie policy",
+      "intro": "A cookie is a small text file the site leaves in your browser so it can remember something. Some are essential, others are optional. Here is exactly which, and why.",
+      "sections": [
+        {
+          "heading": "Strictly necessary cookies",
+          "paragraphs": [
+            "They make the site work and cannot be switched off. No third-party tracking data is stored in them.",
+            "The site cannot function correctly without them."
+          ],
+          "bullets": [
+            "cda_admin_session — keeps you signed in to the admin area.",
+            "NEXT_LOCALE — remembers your language choice so the site stays in the right language."
+          ]
+        },
+        {
+          "heading": "Audience measurement cookies",
+          "paragraphs": [
+            "We measure anonymised data to find out which pages genuinely help. No advertising tracking, no profiling, no resale of data."
+          ],
+          "bullets": [
+            "Audience measurement — visit counts and pages viewed, in aggregated and anonymous form."
+          ]
+        },
+        {
+          "heading": "Third-party cookies",
+          "paragraphs": [
+            "Some services we use — booking appointments, for instance — set their own cookies. Their use is governed by their own privacy policies, which we don't control."
+          ],
+          "bullets": [
+            "Cal.com — for booking slots from the contact page."
+          ]
+        },
+        {
+          "heading": "Managing your cookies",
+          "paragraphs": [
+            "You can delete cookies at any time from your browser settings, and you can block optional cookies. The site stays usable, but some preferences reset on every visit."
+          ]
+        },
+        {
+          "heading": "How long they last",
+          "paragraphs": [
+            "Session cookies are cleared when you close the browser or after eight hours of inactivity. The language cookie lasts up to a year. Audience measurement cookies are kept for thirteen months at most."
+          ]
+        }
+      ]
+    }
+  },
+  "testimonials": {
+    "intro": {
+      "eyebrow": "Testimonials",
+      "title": "What our clients say",
+      "subtitle": "Cameroonian business owners who agreed to describe what changed for them. Nothing goes up without their sign-off."
+    },
+    "empty": {
+      "title": "No testimonials yet",
+      "body": "Be the first to share your experience — it genuinely helps us."
+    },
+    "leaveOne": "Share your experience",
+    "pendingNote": "We review every testimonial before publishing. Allow 48 hours.",
+    "form": {
+      "name": "Your name",
+      "company": "Your company",
+      "role": "Your role",
+      "rating": "Rating",
+      "ratingValue": "{count} out of 5",
+      "quote": "Your testimonial",
+      "quoteHint": "At least 20 characters. Be concrete: what changed, and how fast?",
+      "website": "Your website",
+      "websiteHint": "Optional. A verifiable link is worth more than an initial.",
+      "submit": "Send my testimonial",
+      "sending": "Sending…",
+      "required": "required",
+      "errorSummary": "Something is missing:",
+      "genericError": "That didn't send. Please try again in a moment.",
+      "networkError": "Connection dropped. Check your network and try again.",
+      "errors": {
+        "name": "Please give your name (at least 2 characters).",
+        "quote": "Your testimonial needs to be at least 20 characters.",
+        "rating": "Choose a rating between 1 and 5.",
+        "website": "The address must start with http:// or https://"
+      },
+      "success": {
+        "title": "Thank you — received",
+        "body": "Your testimonial is awaiting review. We'll publish it within 48 hours if it matches the work we did together."
+      }
+    }
+  },
+  "faq": {
+    "intro": {
+      "eyebrow": "FAQ",
+      "title": "The questions we actually get asked",
+      "subtitle": "Straight answers, no jargon. If yours isn't here, just ask — we reply fast."
+    },
+    "empty": {
+      "title": "No published questions yet",
+      "body": "Write to us: your question is probably the next entry."
+    },
+    "stillStuck": "Can't find your answer?",
+    "cta": "Write to us",
+    "secondary": "Book a session",
+    "featured": "Most asked"
   }
 }

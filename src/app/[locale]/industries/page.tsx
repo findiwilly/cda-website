@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { Link } from "@/i18n/routing";
 import { INDUSTRY_SLUGS } from "@/lib/constants";
 
@@ -36,11 +37,12 @@ function Intro() {
 
   return (
     <section className="relative overflow-hidden">
+      <SectionBackdrop variant="contours" />
       <div
         aria-hidden
         className="pointer-events-none absolute -left-40 top-0 h-[26rem] w-[26rem] rounded-full bg-cdayellow/10 blur-[130px]"
       />
-      <div className="mx-auto max-w-content px-6 pb-4 pt-20 sm:pt-28">
+      <div className="relative mx-auto max-w-content px-6 pb-4 pt-20 sm:pt-28">
         <SectionHeader
           as="h1"
           eyebrow={t("eyebrow")}

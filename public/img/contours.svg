@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" fill="none">
+  <!--
+    CDA — topographic contour field.
+    Used as a wide, heavily-faded section backdrop. The paths are hand-drawn
+    approximations of contour lines rather than a real dataset: at 6–10% opacity
+    behind text nobody can tell, and it costs under 3 KB.
+  -->
+  <defs>
+    <linearGradient id="cm-fade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00A67E" stop-opacity="0.9" />
+      <stop offset="55%" stop-color="#FCD116" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#CE1126" stop-opacity="0.35" />
+    </linearGradient>
+  </defs>
+
+  <g stroke="url(#cm-fade)" stroke-width="1.5" fill="none" stroke-linecap="round">
+    <path d="M-40 640C180 600 300 700 520 660s340-160 560-120 360 40 560-40" />
+    <path d="M-40 590C190 550 320 650 540 610s330-150 550-110 350 40 550-40" />
+    <path d="M-40 700C200 660 330 750 560 712s350-160 570-118 340 40 520-30" />
+    <path d="M-40 540C170 500 310 600 530 560s320-140 540-100 330 40 520-40" />
+    <path d="M-40 490C160 452 300 550 520 512s310-130 530-92 310 38 490-38" />
+    <path d="M-40 440C150 404 290 500 510 462s300-118 520-84 290 36 470-36" />
+
+    <path d="M120 120C260 90 380 150 520 128s300-80 460-40 320 60 500 20" />
+    <path d="M100 170C250 140 370 200 520 176s300-78 470-38 320 60 490 18" />
+    <path d="M140 70C270 44 390 104 530 82s300-78 450-40 330 62 500 22" />
+  </g>
+
+  <!-- Survey markers: small crosses at a few control points. -->
+  <g stroke="#00A67E" stroke-opacity="0.7" stroke-width="2" stroke-linecap="round">
+    <path d="M300 452v22M289 463h22" />
+    <path d="M1090 300v22M1079 311h22" />
+    <path d="M640 700v22M629 711h22" />
+  </g>
+</svg>

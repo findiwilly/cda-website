@@ -7,6 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { PhoneMockup } from "@/components/ui/PhoneMockup";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { LeadForm } from "@/components/ui/LeadForm";
 import { SERVICE_ICONS } from "@/components/ui/service-icons";
 import {
@@ -53,11 +54,12 @@ function IndustryHero({ industry }: { industry: IndustrySlug }) {
 
   return (
     <section className="relative overflow-hidden">
+      <SectionBackdrop variant="contours" opacity={0.05} />
       <div
         aria-hidden
         className="pointer-events-none absolute -right-40 -top-24 h-[26rem] w-[26rem] rounded-full bg-cdagreen/15 blur-[130px]"
       />
-      <div className="mx-auto max-w-content px-6 pb-16 pt-20 sm:pt-28">
+      <div className="relative mx-auto max-w-content px-6 pb-16 pt-20 sm:pt-28">
         <SectionHeader
           as="h1"
           eyebrow={ind(`${industry}.name`)}
@@ -118,8 +120,10 @@ function Plan() {
   const t = useTranslations("industryPage");
 
   return (
-    <section className="border-y border-white/5 bg-ink-900/30">
-      <div className="mx-auto max-w-content px-6 py-section">
+    <section className="relative overflow-hidden border-y border-white/[0.06] bg-ink-900/30">
+      <SectionBackdrop variant="grid" opacity={0.045} />
+
+      <div className="relative mx-auto max-w-content px-6 py-section">
         <SectionHeader eyebrow={t("planSubtitle")} title={t("planTitle")} />
 
         <Stagger className="mt-12 grid gap-4 md:grid-cols-3">

@@ -15,6 +15,10 @@ export const routing = defineRouting({
 
 export type Locale = (typeof routing.locales)[number];
 
+/** Re-exported for code that needs a locale at edge or module scope. */
+export const locales = routing.locales;
+export const defaultLocale = routing.defaultLocale;
+
 // Locale-aware drop-ins for next/navigation — always import these,
 // never the next/link or next/navigation originals, for internal links.
 export const { Link, redirect, usePathname, useRouter, getPathname } =

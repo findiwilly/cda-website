@@ -6,6 +6,9 @@ import { StoryParallax } from "@/components/about/StoryParallax";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
+import { SplitMedia } from "@/components/ui/SplitMedia";
+import { IMAGES } from "@/lib/images";
 import { SITE } from "@/lib/constants";
 import { waLink } from "@/lib/utils";
 import { cn } from "@/lib/utils";
@@ -30,6 +33,7 @@ export default function AboutPage({
     <main className="pt-[72px]">
       <AboutHero />
       <Story />
+      <Method />
       <Pillars />
       <PageCta />
     </main>
@@ -41,11 +45,12 @@ function AboutHero() {
 
   return (
     <section className="relative overflow-hidden">
+      <SectionBackdrop variant="contours" />
       <div
         aria-hidden
         className="pointer-events-none absolute -left-40 top-0 h-[26rem] w-[26rem] rounded-full bg-cdagreen/15 blur-[130px]"
       />
-      <div className="mx-auto max-w-content px-6 pb-8 pt-20 sm:pt-28">
+      <div className="relative mx-auto max-w-content px-6 pb-8 pt-20 sm:pt-28">
         <SectionHeader
           as="h1"
           eyebrow={t("eyebrow")}
@@ -82,6 +87,54 @@ function Story() {
         </div>
       </div>
     </StoryParallax>
+  );
+}
+
+/**
+ * Side-by-side section: the method, shown next to what it produces.
+ *
+ * The artwork is an illustration, not a screenshot — there is no real dashboard
+ * behind it and the copy does not imply one exists.
+ */
+function Method() {
+  const t = useTranslations("about.method");
+
+  return (
+    <section className="relative overflow-hidden border-y border-white/[0.06] bg-ink-900/30">
+      <SectionBackdrop variant="grid" opacity={0.05} />
+
+      <div className="relative mx-auto max-w-content px-6 py-section">
+        <SplitMedia
+          src={IMAGES.method.src}
+          alt={t("imageAlt")}
+          width={IMAGES.method.width}
+          height={IMAGES.method.height}
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+          caption={t("caption")}
+          body={
+            <>
+              <p>{t("p1")}</p>
+              <p>{t("p2")}</p>
+            </>
+          }
+          aside={
+            <dl className="grid gap-6 sm:grid-cols-3">
+              {(["s1", "s2", "s3"] as const).map((key) => (
+                <div key={key}>
+                  <dt className="text-[0.65rem] uppercase tracking-[0.3em] text-ink-500">
+                    {t(`${key}.label`)}
+                  </dt>
+                  <dd className="mt-2 font-display text-xl font-semibold text-ink-50">
+                    {t(`${key}.value`)}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          }
+        />
+      </div>
+    </section>
   );
 }
 

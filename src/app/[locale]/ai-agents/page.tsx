@@ -6,6 +6,9 @@ import { AgentConstellation } from "@/components/ui/AgentConstellation";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
+import { SplitMedia } from "@/components/ui/SplitMedia";
+import { IMAGES } from "@/lib/images";
 import { SITE } from "@/lib/constants";
 import { waLink } from "@/lib/utils";
 
@@ -32,6 +35,7 @@ export default function AiAgentsPage({
       <AgentsHero />
       <Exclusive />
       <AgentsGrid />
+      <OnAPhone />
       <How />
       <PageCta />
     </main>
@@ -120,14 +124,60 @@ function How() {
   const t = useTranslations("aiAgents.how");
 
   return (
-    <section className="border-y border-white/5 bg-ink-900/30">
-      <div className="mx-auto max-w-content px-6 py-section">
-        <SectionHeader eyebrow="Co-pilot" title={t("title")} />
+    <section className="relative overflow-hidden border-y border-white/[0.06] bg-ink-900/30">
+      <SectionBackdrop variant="grid" opacity={0.05} />
+
+      <div className="relative mx-auto max-w-content px-6 py-section">
+        <SectionHeader eyebrow={t("eyebrow")} title={t("title")} />
         <Reveal className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-ink-200">
           <p>{t("p1")}</p>
           <p className="font-medium text-ink-50">{t("p2")}</p>
         </Reveal>
       </div>
+    </section>
+  );
+}
+
+/**
+ * Side-by-side section: what the agent actually does on a phone.
+ *
+ * The artwork is an illustration of a WhatsApp thread, drawn to match the brand
+ * palette. It is not a product screenshot, and the copy does not claim it is.
+ */
+function OnAPhone() {
+  const t = useTranslations("aiAgents.onAPhone");
+
+  return (
+    <section className="mx-auto max-w-content px-6 py-section">
+      <SplitMedia
+        reverse
+        src={IMAGES.agentOnPhone.src}
+        alt={t("imageAlt")}
+        width={IMAGES.agentOnPhone.width}
+        height={IMAGES.agentOnPhone.height}
+        eyebrow={t("eyebrow")}
+        title={t("title")}
+        caption={t("caption")}
+        body={
+          <>
+            <p>{t("p1")}</p>
+            <p>{t("p2")}</p>
+          </>
+        }
+        aside={
+          <ul className="space-y-3">
+            {(["b1", "b2", "b3"] as const).map((key) => (
+              <li key={key} className="flex items-start gap-3 text-sm text-ink-200">
+                <span
+                  aria-hidden
+                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cdagreen-bright"
+                />
+                {t(key)}
+              </li>
+            ))}
+          </ul>
+        }
+      />
     </section>
   );
 }

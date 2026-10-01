@@ -9,15 +9,17 @@ export function SectionHeader({
   subtitle,
   center = false,
   as = "h2",
+  className,
 }: {
   eyebrow: string;
   title: string;
   subtitle?: string;
   center?: boolean;
   as?: "h1" | "h2";
+  className?: string;
 }) {
   return (
-    <div className={cn("max-w-2xl", center && "mx-auto text-center")}>
+    <div className={cn("max-w-2xl", center && "mx-auto text-center", className)}>
       <Reveal>
         <div className={cn("flex items-center gap-4", center && "justify-center")}>
           <span className="h-px w-10 shrink-0 bg-cdagreen-bright" />

@@ -6,6 +6,7 @@ import { ServicesJourney } from "@/components/services/ServicesJourney";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { SERVICE_ICONS } from "@/components/ui/service-icons";
 import { SERVICE_SLUGS, SITE } from "@/lib/constants";
 import { waLink } from "@/lib/utils";
@@ -41,11 +42,12 @@ function Intro() {
 
   return (
     <section className="relative overflow-hidden">
+      <SectionBackdrop variant="grid" opacity={0.05} />
       <div
         aria-hidden
         className="pointer-events-none absolute -right-40 -top-20 h-[26rem] w-[26rem] rounded-full bg-cdagreen/15 blur-[130px]"
       />
-      <div className="mx-auto max-w-content px-6 pb-16 pt-20 sm:pt-28">
+      <div className="relative mx-auto max-w-content px-6 pb-16 pt-20 sm:pt-28">
         <SectionHeader
           as="h1"
           eyebrow={t("eyebrow")}

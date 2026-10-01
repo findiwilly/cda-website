@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { Calculators } from "@/components/ui/Calculators";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 
 export async function generateMetadata({
   params: { locale },
@@ -35,11 +36,12 @@ function Intro() {
 
   return (
     <section className="relative overflow-hidden">
+      <SectionBackdrop variant="grid" opacity={0.05} />
       <div
         aria-hidden
         className="pointer-events-none absolute -right-40 top-0 h-[26rem] w-[26rem] rounded-full bg-cdagreen/12 blur-[130px]"
       />
-      <div className="mx-auto max-w-content px-6 pb-4 pt-20 sm:pt-28">
+      <div className="relative mx-auto max-w-content px-6 pb-4 pt-20 sm:pt-28">
         <SectionHeader
           as="h1"
           eyebrow={t("eyebrow")}
