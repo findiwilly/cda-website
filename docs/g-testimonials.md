@@ -110,3 +110,26 @@ npm run dev
 - There is no pagination. `listApprovedTestimonials` returns everything. Add
   cursor-based paging before the collection passes roughly 50 — the page will
   get slow long before that, since each card is a testimonial.
+
+### Seeded empty, on purpose
+
+Added in [J](j-content-and-credentials.md). `TESTIMONIAL_SEED` is now `[]`.
+
+The previous version seeded three testimonials whose `name` and `quote` both
+began `PLACEHOLDER —`, attributed to invented people at invented companies, with
+`status: "approved"` so they rendered. The labelling was the right instinct, but
+`approved` was not: a seeded row that renders is one careless `UPDATE` away from
+being indistinguishable from a real quote, and the empty state is already built
+and reachable.
+
+A testimonial is the one category a seed script must never fill. Marketing copy
+is a claim you make about yourself and can substantiate. A quote attributed to a
+named person at a named company is a factual statement about a third party that
+the visitor has no way to check, and it is actionable as false advertising. There
+is no version of "research the testimonials on the internet" that works — CDA's
+customers' opinions are not published anywhere.
+
+So: real quotes come from `/admin/testimonials`, or from clients through the
+public form, where they land `pending` and only an admin publishes them. Until
+then the page renders its empty state. `npm run seed:check` fails if anyone adds
+an entry to `TESTIMONIAL_SEED` again.

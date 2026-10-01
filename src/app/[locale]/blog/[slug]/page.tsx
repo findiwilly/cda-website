@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/routing";
-import { locales } from "@/i18n/routing";
+
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
@@ -36,8 +36,13 @@ export async function generateStaticParams() {
   // Slugs come from the database, so this is empty on a build without
   // credentials. Next then falls back to on-demand rendering and the route
   // still works — `dynamicParams` stays true.
-  const slugs = await getPublishedPostSlugs();
-  return locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
+  //
+  // Each post yields exactly one route, in the locale it was written in. Do not
+  // cross these with the locale list: that pre-renders every slug under every
+  // locale, and the mismatched ones render `notFound()` as static files — a
+  // soft 404 answering with a 200.
+  const posts = await getPublishedPostSlugs();
+  return posts.map(({ slug, locale }) => ({ locale, slug }));
 }
 
 export async function generateMetadata({

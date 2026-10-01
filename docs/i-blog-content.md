@@ -143,3 +143,26 @@ npm run dev
   document with translated fields. Editing the French post therefore cannot
   silently break the English one, and the admin can see at a glance which
   translations are missing.
+
+### Added in [J](j-content-and-credentials.md)
+
+Two bugs that only appear once a database-backed build runs — neither is
+visible with an empty collection.
+
+- **`generateStaticParams` must not cross slugs with locales.**
+  `getPublishedPostSlugs()` originally projected `locale` and discarded it,
+  returning bare slugs; the page then did
+  `locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })))`. Every
+  slug was pre-rendered under every locale. The mismatched ones call
+  `notFound()` — but because they were built at compile time they are served as
+  **static files with HTTP 200**. That is a soft 404: a real, indexable URL whose
+  content is a not-found page. `getPublishedPostSlugs()` now returns
+  `{ slug, locale }[]` and `generateStaticParams` maps it directly. Six posts
+  pre-render as six correct URLs.
+  A cross product here is invisible until the database has content: with an empty
+  collection `slugs` is `[]` and the `flatMap` produces nothing.
+- **Post bodies must start at `##`.** The page renders `<h1>{post.title}</h1>`
+  itself, and `outlineOf()` only collects `#{2,3}`. The seed's demo posts began
+  with `# `, so each produced two `h1`s and the first heading never appeared in
+  the table of contents. `npm run seed:check` now fails on a leading `#` or on any
+  heading level outside `##`/`###`.

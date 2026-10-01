@@ -61,7 +61,7 @@ export function LoginForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="admin@cameroondigital.agency"
+          placeholder="admin@cameroondigitalagency.com"
           className={input}
         />
       </div>

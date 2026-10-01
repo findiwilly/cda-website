@@ -28,7 +28,7 @@ permissions:
 
 jobs:
   verify:
-    name: Lint, typecheck, build
+    name: Messages, content, lint, typecheck, build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -37,7 +37,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          # 22, not 20: `scripts/*.ts` run directly through Node's type
+          # stripping, which only exists from 22.6. On 20 the seed and the
+          # content check both fail to parse.
+          node-version: "22"
           cache: npm
 
       - name: Install dependencies
@@ -45,6 +48,12 @@ jobs:
 
       - name: Check message files
         run: npm run messages
+
+      # Pure data validation — no database, no credentials. Catches a French FAQ
+      # with an English word in it, a translation pointing at a missing slug, or
+      # a post body starting at `#` (which would render a second h1).
+      - name: Check seed content
+        run: npm run seed:check
 
       - name: Lint
         run: npm run lint

@@ -29,10 +29,16 @@ Each entry follows a fixed shape so it can be skimmed or grepped:
 | G | [Testimonials page + submission form](g-testimonials.md) | Done |
 | H | [FAQ page](h-faq-page.md) | Done |
 | I | [Blog index & article rendering](i-blog-content.md) | Done |
+| J | [Real content, live credentials, bugs found](j-content-and-credentials.md) | Done |
 
 `I` was added beyond the original A–H scope. The blog was part of the admin-panel
 work, but the markdown → sanitized-HTML pipeline has two traps in it that fail
 silently, so it is documented on its own rather than as a paragraph inside `E`.
+
+`J` replaced the placeholder seed content with researched content and wired the
+real credentials. It found two bugs that only appear once a database-backed build
+runs: a cross-locale `generateStaticParams` that served soft 404s, and seeded
+posts that rendered two `h1`s each.
 
 ## Before you ship
 
@@ -40,21 +46,35 @@ None of this is written down anywhere else, so it is written down here.
 
 **Must happen:**
 
-- [ ] Replace or delete the seed testimonials. They are marked `PLACEHOLDER —`.
-      Invented praise must not reach a real visitor.
-- [ ] Replace or delete the seed demo blog posts. Same reason.
+- [ ] Create the admin account. `npm run seed` seeds content but was deliberately
+      run without `ADMIN_EMAIL`, so there is no admin yet:
+      ```bash
+      ADMIN_PASSWORD='a password you have not typed into a chat' npm run seed
+      ```
+      See [J](j-content-and-credentials.md).
+- [ ] **Rotate the MongoDB password and the Cloudinary API secret.** Both were
+      pasted into a chat in plaintext. `.env.local` is gitignored, but the values
+      are in that conversation's history. Then update `.env.local`.
+- [ ] **Regenerate the Gmail app password.** The configured one is rejected by
+      Google (`535 5.7.8`) in every combination of spacing and port. See [00](00-environment.md).
 - [ ] Get the legal pages reviewed by someone qualified. See
       [F](f-legal-pages.md). They are an accurate starting draft, not legal advice.
 - [ ] Add the imprint page (`mentions légales`) — registered name, address,
       SIRET/SIREN, RCS, hosting provider. The numbers are business registration
       data and were deliberately not invented.
 - [ ] Replace the demo `LocalBusiness` data in `src/lib/constants.ts` `SITE` —
-      address, phone, geo coordinates.
+      address, phone, geo coordinates. `whatsappNumber` is still a placeholder.
 - [ ] Rename the GitHub Actions check from `Deploy` to `CI` in any branch
       protection rules. See [A](a-fix-ci.md).
 
 **Should happen:**
 
+- [ ] **Review the seeded FAQs against what you actually charge and promise.**
+      They follow `contact.faq` in the message files. If a number there is wrong,
+      the FAQ is now wrong in two places. See [J](j-content-and-credentials.md).
+- [ ] **Collect real testimonials.** The collection is seeded empty on purpose —
+      see [J](j-content-and-credentials.md) for why a seed script must not invent
+      them. The page renders its empty state until then.
 - [ ] **Drop in the stock photography.** Both arrangements are built and wired to
       `src/lib/images.ts`; the SVG stands in only because photo bytes could not
       be downloaded in the build environment. Filenames, search terms and sizes
@@ -62,9 +82,6 @@ None of this is written down anywhere else, so it is written down here.
       when you do** — see [D](d-imagery.md).
 - [ ] Set `NEXT_PUBLIC_SITE_URL` to the real origin in Vercel. Canonical URLs,
       the sitemap and schema.org `image` all derive from it.
-- [ ] Generate a real `SESSION_SECRET` (32+ characters) and set
-      `ADMIN_EMAIL`, `MONGODB_URI`, and the Cloudinary and SMTP credentials.
-      See [00](00-environment.md).
 - [ ] Decide on second-admin access, and add an audit trail when you do.
       There is no admin creation UI and no password reset flow. See
       [E](e-admin-panel.md).
@@ -89,11 +106,15 @@ None of this is written down anywhere else, so it is written down here.
   other, an array whose length differs between the two, an ICU placeholder set
   that differs, or an empty string. It runs in `npm run verify` and as the first
   step of CI.
+  **The same applies to seeded content,** which is not really user-generated:
+  `npm run seed:check` validates the FAQs and posts in
+  `scripts/seed-content.ts` for locale parity, broken translation links, heading
+  levels, and English leaking into French. It runs in `verify` and in CI.
 - **Mobile-first.** Cameroon traffic is mostly mobile and often low-bandwidth, so
   every page is built mobile-first and JS stays lean.
 - **Build and lint must pass** before anything is considered done:
   `npm run build` and `npm run lint`. `npm run verify` runs every check —
-  messages, lint, typecheck, build — and is what CI runs.
+  messages, seeded content, lint, typecheck, build — and is what CI runs.
 
 ## Environment gotchas
 
@@ -115,3 +136,18 @@ Not bugs in the site, but traps that cost time. All four have been hit.
   looked fine in Node and turned into a character class matching nothing under a
   bare `Get-Content` in Windows PowerShell. It uses `\u` escapes now, and the
   comment there says why. See [I](i-blog-content.md).
+- **PowerShell deletes an environment variable when you set it to `""`.**
+  `$env:FOO = ""` removes `FOO` entirely, so anything that reloads `.env.local`
+  with `??=` puts the real value straight back. To pass a defined-but-blank value
+  — which is how `npm run seed` is told to skip admin creation — use a single
+  space: `$env:ADMIN_EMAIL = " "`. See [J](j-content-and-credentials.md).
+- **Any env var whose value contains spaces must be quoted.** The Gmail app
+  password is 16 letters in `4-4-4-4` groups. Unquoted, the parser truncates it
+  at the first space and Google answers with a generic
+  `535 Username and Password not accepted`. Any hand-rolled `.env` reader in this
+  repo has to strip surrounding quotes; `dotenv` does, a `split("=")` does not.
+- **An SMTP auth failure does not tell you which mistake you made.** Google's
+  `535` is identical for a wrong password, a revoked app password, and 2FA having
+  been changed since it was created. Google also shows app passwords *with*
+  spaces while some clients need them concatenated. `npm run env:check` tries the
+  plausible combinations so the ambiguity does not cost an afternoon.

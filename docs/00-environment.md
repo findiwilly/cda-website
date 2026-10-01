@@ -75,3 +75,80 @@ Then check `http://localhost:3000/fr/blog` renders its empty state rather than a
 - Vercel environment variables go in Project Settings → Environment Variables,
   scoped to Production and Preview as appropriate. Do not set `ADMIN_PASSWORD`
   in Vercel — it is a seed-time-only secret and has no reader in the app.
+
+---
+
+## Live configuration
+
+Added in [J](j-content-and-credentials.md). `.env.local` now holds real values
+and is gitignored, so it cannot reach the repo. `.env.example` stays blanks-only.
+
+```bash
+npm run env:check
+```
+
+`scripts/check-credentials.mjs` is the diagnostic. It is read-only: it pings
+Mongo, pings Cloudinary, and completes an SMTP handshake without sending mail.
+Output looks like:
+
+```
+mongodb    OK   db="cda"
+           admins: 0  <- seed required
+cloudinary OK   cloud="<your-cloud-name>"
+smtp       OK   smtp.gmail.com:587 as <your-address@gmail.com>
+session    OK   64 chars
+```
+
+**What each probe deliberately does not do:**
+
+- **Cloudinary uses `api.ping()`, not `api.usage()`.** The usage API is
+  restricted on free plans and rejects with an error object carrying no
+  `.message`, so the failure prints as `cloudinary FAIL undefined` and reads
+  exactly like wrong credentials. It cost an hour.
+- **SMTP uses `transporter.verify()`,** which completes the handshake and
+  authenticates, then throws the session away. No mail is sent to anyone.
+
+### Gmail and app passwords
+
+Google will not accept the account password over SMTP. It requires an **App
+Password**: Google Account → Security → 2-Step Verification → App passwords.
+It is a 16-character code, *displayed* with spaces in `4-4-4-4` groups.
+
+Two traps:
+
+- **Quote the value in the env file.** Unquoted, the value is truncated at the
+  first space, leaving `jvqt`, and Google answers with a generic
+  `535 Username and Password not accepted`. Every hand-rolled `.env` reader in
+  this repo (`scripts/seed.ts`, `scripts/check-credentials.mjs`) strips
+  surrounding quotes for this reason.
+- **A `535` is ambiguous.** Wrong password, revoked app password, and 2FA having
+  been changed since the password was created all produce the same message.
+  Google also shows the password with spaces while some SMTP clients need it
+  concatenated. `npm run env:check` tries spaced and unspaced on 587 and 465, so
+  the spacing question is settled for you — but a genuine rejection needs a new
+  app password.
+
+**Current state: rejected.** All four combinations return
+`535-5.7.8 Username and Password not accepted`. The value is correctly shaped,
+so it is not a truncation problem. Regenerate it.
+
+Sending `SMTP_FROM` from `@gmail.com` is required unless
+`@cameroondigitalagency.com` has been verified in the Gmail account. Sending as
+an unverified domain fails DMARC and lands in spam.
+
+### Credential hygiene
+
+The MongoDB password and the Cloudinary API secret were pasted into a chat in
+plaintext while setting this up. `.env.local` is gitignored, but the values are
+in that conversation's history. **Rotate both before production** — reset the
+Atlas database user's password in Database Access, and regenerate the Cloudinary
+API secret under Settings → API Keys. Account names, cluster host and cloud name
+are deliberately not written down here; find them in the provider consoles.
+
+Note that Cloudinary's API *key* is the less sensitive half. It identifies the
+account and appears in delivery URLs. The API *secret* is the one that signs
+uploads and must never be committed.
+
+No admin account exists yet: the seed was run with `ADMIN_EMAIL` blank so it could
+not create one using the password that was in the chat. See
+[J](j-content-and-credentials.md).

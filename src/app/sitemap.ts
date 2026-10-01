@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { INDUSTRY_SLUGS, NAV_ITEMS } from "@/lib/constants";
-import { listPublishedPosts, getPublishedPostSlugs } from "@/lib/content";
+import { listPublishedPosts } from "@/lib/content";
 import { localePath, absoluteUrl } from "@/lib/seo";
 
 /**
@@ -69,6 +69,3 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return entries;
 }
-
-/** Slug list reused by the blog's `generateStaticParams`. */
-export { getPublishedPostSlugs };

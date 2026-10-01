@@ -160,14 +160,27 @@ export async function getPostBySlug(slug: string, locale: Locale2): Promise<Post
 }
 
 /** Slugs for `generateStaticParams`. Empty when Mongo is absent. */
-export async function getPublishedPostSlugs(): Promise<string[]> {
+/**
+ * Published slugs paired with the locale they were written in.
+ *
+ * The pairing is essential, not cosmetic. `generateStaticParams` needs both
+ * values per route; returning bare slugs invites a cross product with the
+ * locale list, which pre-renders `/fr/blog/<english-slug>` for every English
+ * post. Those pages then render `notFound()` and are served as static files —
+ * a soft 404 with a 200 status, which search engines treat as real content.
+ */
+export async function getPublishedPostSlugs(): Promise<
+  { slug: string; locale: Locale2 }[]
+> {
   await prepareDatabase();
   const col = await collection<Doc>(COLLECTIONS.posts);
   if (!col) return [];
   const docs = await col
     .find({ status: "published" }, { projection: { slug: 1, locale: 1 } })
     .toArray();
-  return docs.map((d) => String(d.slug));
+  return docs
+    .filter((d) => d.locale === "fr" || d.locale === "en")
+    .map((d) => ({ slug: String(d.slug), locale: d.locale as Locale2 }));
 }
 
 export async function createPost(input: PostInput): Promise<Post> {

@@ -96,3 +96,26 @@ npm run dev
   `docs/c-lead-form-and-calcom.md`. Its `aria-controls`, `role="region"` and
   heading-wrapper work is load-bearing here, since the FAQ page is entirely
   accordions.
+
+### Added in [J](j-content-and-credentials.md)
+
+Seeding 18 real questions per locale surfaced three constraints that are easy to
+break and impossible to see until the content is rendered.
+
+- **Answers are plain text, never markdown.** `answer` is rendered straight into
+  the accordion *and* passed to `faqJsonLd`. Nothing parses markdown there, so
+  `*vos*` appears literally in the page and `**prix**` leaks into the structured
+  data that Google reads. `npm run seed:check` fails on markdown in an answer.
+- **The two languages cannot be paired by question text.** The question is
+  translated, so the French and English rows legitimately differ. The first
+  version of the seed paired on `question`, and it "worked" for exactly one entry
+  — the one that had been left in French on the English page, which is itself a
+  bug a visitor would see. Seeded FAQs therefore carry an explicit `key`
+  (`market-price-ranges`, `payment-terms`, …) which is the join key, stripped
+  before insert because it is a seed-time convenience, not a document field.
+- **Seeded answers must agree with `contact.faq` in the message files.** Both
+  surfaces answer "how much?", "how long?", "how do I pay?". The seed originally
+  said *50 % on signature, 50 % on delivery* while `contact.faq.q4.a` says *MTN
+  Mobile Money, Orange Money or bank transfer, instalments possible*. The
+  messages files own the commercial terms; the FAQs restate them. The old English
+  seed also quoted euros where the French quoted FCFA, at an inconsistent rate.

@@ -31,7 +31,7 @@ export const env = {
     port: Number(process.env.SMTP_PORT ?? 587),
     user: process.env.SMTP_USER,
     password: process.env.SMTP_PASSWORD,
-    from: process.env.SMTP_FROM ?? "Cameroon Digital Agency <no-reply@cameroondigital.agency>",
+    from: process.env.SMTP_FROM ?? "Cameroon Digital Agency <no-reply@cameroondigitalagency.com>",
     notify: process.env.SMTP_NOTIFY_TO,
   },
 
