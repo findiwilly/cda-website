@@ -149,6 +149,14 @@ export async function getAdminPost(id: string): Promise<Post | null> {
   return doc ? serialize<Post>(doc) : null;
 }
 
+export async function getAdminLead(id: string): Promise<any | null> {
+  await prepareDatabase();
+  const col = await collection<Doc>(COLLECTIONS.leads);
+  if (!col || !ObjectId.isValid(id)) return null;
+  const doc = await col.findOne({ _id: new ObjectId(id) });
+  return doc ? serialize<any>(doc) : null;
+}
+
 export async function getPostBySlug(slug: string, locale: Locale2): Promise<Post | null> {
   return unstableCached(async () => {
     await prepareDatabase();
