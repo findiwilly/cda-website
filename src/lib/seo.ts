@@ -208,3 +208,37 @@ export function jsonLdScript(data: unknown): string {
   // `<` is escaped so a stray `</script>` in content cannot close the tag early.
   return JSON.stringify(data).replace(/</g, "\\u003c");
 }
+
+
+export function siteMetadata(locale = "fr" as "fr" | "en", opts: {
+  title?: string;
+  description?: string;
+  path?: string;
+  image?: string;
+  noIndex?: boolean;
+} = {}) {
+  const title = opts.title ? opts.title + " | " + SITE.name : SITE.name;
+  const description = opts.description ?? SITE.description[locale];
+  const url = absoluteUrl(localePath(locale, opts.path ?? "/"));
+  const image = opts.image ?? absoluteUrl("/og.jpg");
+  return {
+    title,
+    description,
+    alternates: languageAlternates(opts.path ?? "/"),
+    robots: { index: !opts.noIndex, follow: !opts.noIndex },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: SITE.name,
+      type: "website",
+      images: [{ url: image }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
+  };
+}

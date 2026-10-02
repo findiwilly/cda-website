@@ -10,6 +10,10 @@ export const SITE = {
   country: "CM",
   whatsappNumber: "+237650077812",
   calcomUrl: "https://cal.com/cda/strategy-session",
+  description: {
+    fr: "Cameroon Digital Agency (CDA) : branding, stratégie digitale, IA, automatisation, réseaux, vidéosurveillance, IoT et développement web.",
+    en: "Cameroon Digital Agency (CDA): branding, digital strategy, AI, automation, networks, CCTV, IoT, and web development.",
+  },
 } as const;
 
 /**
@@ -38,6 +42,7 @@ export const NAV_ITEMS = [
   { key: "resources", href: "/resources" },
   { key: "testimonials", href: "/testimonials" },
   { key: "faq", href: "/faq" },
+  { key: "partnership", href: "/partnership" },
   { key: "contact", href: "/contact" },
 ] as const;
 
@@ -55,7 +60,12 @@ export const SERVICE_SLUGS = [
   "seo-geo-aeo",
   "data-analytics",
   "it-consulting",
-  "e-invitations",
+  "network-systems",
+      "cctv",
+      "iot",
+      "it-maintenance",
+      "it-consultancy",
+      "e-invitations",
 ] as const;
 
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];

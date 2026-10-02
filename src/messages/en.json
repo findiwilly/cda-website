@@ -11,6 +11,7 @@
     "about": "About",
     "blog": "Blog",
     "resources": "Resources",
+    "partnership": "Partnership",
     "contact": "Contact",
     "bookSession": "Book a Session",
     "testimonials": "Testimonials",
@@ -118,6 +119,27 @@
     "it-consulting": {
       "name": "IT Consulting",
       "pitch": "Sound technology decisions, explained without jargon."
+    },
+    "network-systems": {
+      "name": "IT Network Installation",
+      "pitch": "Network system engineering. Reliable, secure, future-ready."
+    },
+    "cctv": {
+      "name": "Video Surveillance",
+      "pitch": "CCTV systems — wired/wireless IP cameras with remote access.",
+      "summary": "CCTV installation and video surveillance systems."
+    },
+    "iot": {
+      "name": "IoT (Internet of Things)",
+      "pitch": "Smart sensors, automation and connected systems."
+    },
+    "it-maintenance": {
+      "name": "IT Maintenance",
+      "pitch": "Preventive & corrective maintenance to keep you running."
+    },
+    "it-consultancy": {
+      "name": "General IT Consultancy",
+      "pitch": "YouTube Automation, Social Media Automation & Monetization, strategy & advisory."
     },
     "e-invitations": {
       "name": "E-Invitations",

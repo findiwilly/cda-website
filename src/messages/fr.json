@@ -11,6 +11,7 @@
     "about": "À propos",
     "blog": "Blog",
     "resources": "Ressources",
+    "partnership": "Partenariat",
     "contact": "Contact",
     "bookSession": "Réserver une session",
     "testimonials": "Témoignages",
@@ -118,6 +119,27 @@
     "it-consulting": {
       "name": "Conseil IT",
       "pitch": "Des décisions technologiques sûres, expliquées sans jargon."
+    },
+    "network-systems": {
+      "name": "Réseaux Informatique",
+      "pitch": "Installation et configuration de réseaux fiables et sécurisés."
+    },
+    "cctv": {
+      "name": "Vidéosurveillance",
+      "summary": "Installation de systèmes de vidéosurveillance.",
+      "pitch": "Systèmes de vidéosurveillance IP/analogique, accessibles à distance."
+    },
+    "iot": {
+      "name": "IoT",
+      "pitch": "Automatisation, capteurs et supervision connectés."
+    },
+    "it-maintenance": {
+      "name": "Maintenance IT",
+      "pitch": "Maintenance préventive et corrective pour garantir la continuité."
+    },
+    "it-consultancy": {
+      "name": "Conseil IT Général",
+      "pitch": "YouTube Automation, SM Automation/Monétisation, accompagnement stratégique."
     },
     "e-invitations": {
       "name": "E-invitations",
