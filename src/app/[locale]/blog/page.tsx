@@ -9,6 +9,7 @@ import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { listPublishedPosts, toLocale } from "@/lib/content";
 import { breadcrumbJsonLd, openGraphFor } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { BlogList } from "./BlogList";
 
 /**
  * Blog index, driven by the database.
@@ -81,88 +82,7 @@ export default async function BlogPage({
         </div>
       </section>
 
-      {/* Category filter — visual only for now; the list below is already
-          scoped to this locale. */}
-      {categories.length > 1 && (
-        <div className="mx-auto max-w-content px-6 pt-10">
-          <Reveal>
-            <h2 className="text-[0.65rem] uppercase tracking-[0.35em] text-ink-500">
-              {t("filters.label")}
-            </h2>
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <li
-                  key={category}
-                  className="rounded-full bg-white/5 px-4 py-2 text-xs text-ink-300 ring-1 ring-white/10"
-                >
-                  {category}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
-      )}
-
-      {/* Posts */}
-      <section className="mx-auto max-w-content px-6 py-section">
-        {posts.length === 0 ? (
-          <EmptyState />
-        ) : (
-          <Stagger className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <StaggerItem key={post._id} className="h-full">
-                <article className="glass group flex h-full flex-col overflow-hidden rounded-2xl transition-colors duration-300 hover:border-cdagreen/30">
-                  {post.cover && (
-                    /* Plain <img>: the source is a fully-formed Cloudinary
-                       delivery URL, so Next's optimiser has nothing to do. */
-                    /* eslint-disable-next-line @next/next/no-img-element */
-                    <img
-                      src={post.cover.url}
-                      alt={post.cover.alt ?? ""}
-                      width={post.cover.width}
-                      height={post.cover.height}
-                      loading="lazy"
-                      decoding="async"
-                      className="aspect-[16/9] w-full object-cover"
-                    />
-                  )}
-
-                  <div className="flex flex-1 flex-col p-7">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="rounded-full bg-cdagreen/10 px-3 py-1 text-xs text-cdagreen-bright ring-1 ring-cdagreen/20">
-                        {post.category}
-                      </span>
-                      <span className="text-xs text-ink-500">
-                        {post.readingTime} {t("readTime")}
-                      </span>
-                    </div>
-
-                    <h2 className="mt-5 flex-1 font-display text-xl font-semibold leading-snug text-ink-50">
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="transition-colors duration-300 after:absolute after:inset-0 hover:text-cdagreen-bright"
-                      >
-                        {post.title}
-                      </Link>
-                    </h2>
-
-                    <p className="mt-3 text-sm leading-relaxed text-ink-300">
-                      {post.excerpt}
-                    </p>
-
-                    <time
-                      dateTime={post.publishedAt ?? post.updatedAt}
-                      className="mt-6 text-xs text-ink-400"
-                    >
-                      {dateFormatter.format(new Date(post.publishedAt ?? post.updatedAt))}
-                    </time>
-                  </div>
-                </article>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        )}
-      </section>
+      <BlogList posts={posts} categories={categories} locale={locale} />
     </main>
   );
 }
