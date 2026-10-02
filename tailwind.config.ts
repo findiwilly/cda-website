@@ -71,16 +71,11 @@ const config: Config = {
       },
       animation: {
         "pulse-soft": "pulse-soft 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        marquee: "marquee 40s linear infinite",
       },
       keyframes: {
         "pulse-soft": {
           "0%, 100%": { opacity: "1", transform: "scale(1)" },
           "50%": { opacity: "0.75", transform: "scale(1.04)" },
-        },
-        marquee: {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-50%)" },
         },
       },
       transitionTimingFunction: {

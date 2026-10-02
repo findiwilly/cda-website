@@ -34,6 +34,7 @@ import {
   type PostSeed,
   type TestimonialSeed,
 } from "./seed-content.ts";
+import { LEAD_RETENTION_DAYS } from "../src/lib/constants.ts";
 
 const DB = process.env.MONGODB_DB ?? "cda";
 
@@ -210,7 +211,51 @@ async function ensureIndexes(db: Db) {
     ]),
     db.collection("faqs").createIndexes([{ key: { locale: 1, order: 1 } }]),
     db.collection("admins").createIndexes([{ key: { email: 1 }, unique: true }]),
-    db.collection("leads").createIndexes([{ key: { createdAt: -1 } }]),
+    ensureLeadIndexes(db),
+    ensureMessageIndexes(db),
+  ]);
+}
+
+/**
+ * The lead collection carries a TTL, so the retention window published in the
+ * privacy policy is enforced by the database rather than by good intentions.
+ *
+ * MongoDB silently keeps an existing index's `expireAfterSeconds` when you
+ * re-issue `createIndex` for the same key pattern, so raising or lowering
+ * `LEAD_RETENTION_DAYS` would otherwise appear to succeed and change nothing.
+ * The TTL index is therefore dropped and recreated on every run, which makes
+ * the published number and the enforced number the same value by construction.
+ */
+async function ensureLeadIndexes(db: Db) {
+  const leads = db.collection("leads");
+  await leads.createIndex({ createdAt: -1 });
+
+  const name = "leads_ttl";
+  const wanted = LEAD_RETENTION_DAYS * 24 * 60 * 60;
+  const existing = await leads.indexes();
+  const current = existing.find(
+    (i) => i.name === name,
+  ) as { expireAfterSeconds?: number } | undefined;
+
+  if (current) {
+    if (current.expireAfterSeconds === wanted) return;
+    await leads.dropIndex(name);
+  }
+  await leads.createIndex({ createdAt: 1 }, { name, expireAfterSeconds: wanted });
+  console.log(
+    `  = leads TTL index set to ${LEAD_RETENTION_DAYS} days (${wanted}s).`,
+  );
+}
+
+/**
+ * Admin-to-visitor reply threads. `leadId` groups a conversation and is what
+ * the inbox list keys on; `createdAt` gives the thread its order, and `read` is
+ * what makes an unread thread stand out in the dashboard.
+ */
+async function ensureMessageIndexes(db: Db) {
+  await db.collection("messages").createIndexes([
+    { key: { leadId: 1, createdAt: 1 } },
+    { key: { read: 1, createdAt: -1 } },
   ]);
 }
 

@@ -2,8 +2,6 @@ import { setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { Check, MessageCircle, Zap } from "lucide-react";
 import { Hero } from "@/components/home/Hero";
-import { Ticker } from "@/components/home/Ticker";
-import { Counter } from "@/components/motion/Counter";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -11,7 +9,6 @@ import { SERVICE_ICONS } from "@/components/ui/service-icons";
 import { Link } from "@/i18n/routing";
 import {
   FEATURED_SERVICES,
-  HOME_STATS,
   INDUSTRY_SLUGS,
   SITE,
 } from "@/lib/constants";
@@ -27,37 +24,11 @@ export default function HomePage({
   return (
     <main>
       <Hero />
-      <Ticker />
-      <Stats />
       <PowerOffer />
       <ServicesSection />
       <IndustriesSection />
-      <Testimonials />
       <FinalCta />
     </main>
-  );
-}
-
-function Stats() {
-  const t = useTranslations("home.stats");
-
-  return (
-    <section className="relative">
-      <Stagger className="mx-auto grid max-w-content grid-cols-1 gap-10 px-6 py-20 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-white/5">
-        {HOME_STATS.map((stat) => (
-          <StaggerItem key={stat.key} className="text-center">
-            <Counter
-              value={stat.value}
-              suffix={stat.suffix}
-              className="font-display text-display-md font-bold text-ink-50"
-            />
-            <p className="mt-3 text-xs uppercase tracking-[0.25em] text-ink-400">
-              {t(stat.key)}
-            </p>
-          </StaggerItem>
-        ))}
-      </Stagger>
-    </section>
   );
 }
 
@@ -202,38 +173,6 @@ function IndustriesSection() {
           {t("viewAll")}
         </Link>
       </Reveal>
-    </section>
-  );
-}
-
-function Testimonials() {
-  const t = useTranslations("home.testimonials");
-
-  return (
-    <section className="mx-auto max-w-content px-6 py-section">
-      <SectionHeader eyebrow={t("eyebrow")} title={t("title")} />
-
-      <Stagger className="mt-14 grid gap-4 md:grid-cols-3">
-        {(["t1", "t2", "t3"] as const).map((key) => (
-          <StaggerItem key={key} className="h-full">
-            <figure className="glass flex h-full flex-col rounded-2xl p-8">
-              <span
-                aria-hidden
-                className="font-display text-5xl font-bold leading-none text-cdagreen-bright"
-              >
-                “
-              </span>
-              <blockquote className="mt-3 flex-1 leading-relaxed text-ink-100">
-                {t(`${key}.quote`)}
-              </blockquote>
-              <figcaption className="mt-6 border-l-2 border-cdagreen/40 pl-4">
-                <p className="text-sm font-semibold text-ink-50">{t(`${key}.name`)}</p>
-                <p className="mt-0.5 text-xs text-ink-400">{t(`${key}.role`)}</p>
-              </figcaption>
-            </figure>
-          </StaggerItem>
-        ))}
-      </Stagger>
     </section>
   );
 }

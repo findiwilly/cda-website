@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Link } from "@/i18n/routing";
+import { Link, redirect } from "@/i18n/routing";
 
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Reveal } from "@/components/motion/Reveal";
@@ -13,6 +13,7 @@ import {
   getPostBySlug,
   getPublishedPostSlugs,
   listPublishedPosts,
+  resolveWrongLocalePost,
   toLocale,
 } from "@/lib/content";
 import { extractHeadings, renderMarkdown } from "@/lib/markdown";
@@ -28,6 +29,10 @@ import { articleJsonLd, breadcrumbJsonLd, openGraphFor } from "@/lib/seo";
  *
  * Unknown or unpublished slugs 404. A draft must never leak by guessing its URL,
  * so `getPostBySlug` filters on `status: "published"` itself.
+ *
+ * A slug that exists only in the *other* language is not a 404: it redirects to
+ * the translation, or to the blog index when the post has no translation. That
+ * is the language toggle's path — see `resolveWrongLocalePost`.
  */
 
 export const revalidate = 3600;
@@ -76,7 +81,19 @@ export default async function BlogPostPage({
   setRequestLocale(locale);
 
   const post = await getPostBySlug(slug, toLocale(locale));
-  if (!post) notFound();
+  if (!post) {
+    // The slug may be real but live in the other language. This is precisely
+    // what the navbar toggle produces, because it swaps the locale segment and
+    // keeps the slug, and the two languages of a post have different slugs.
+    // Sending the visitor to the translation — or to the blog index when there
+    // is no translation — is what makes the toggle appear to work.
+    const elsewhere = await resolveWrongLocalePost(slug, toLocale(locale));
+    // `{ href, locale }`, not `(href, locale)`. This `redirect` applies the
+    // locale prefix itself, so pre-prefixing the path with `localePath` here
+    // would double it — and passing a bare string yields `/undefinedundefined`.
+    if (elsewhere) redirect({ href: elsewhere, locale });
+    notFound();
+  }
 
   const t = await getTranslations({ locale, namespace: "blog" });
   const intro = await getTranslations({ locale, namespace: "blog.intro" });

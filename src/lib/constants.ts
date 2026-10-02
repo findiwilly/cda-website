@@ -12,6 +12,23 @@ export const SITE = {
   calcomUrl: "https://cal.com/cda/strategy-session",
 } as const;
 
+/**
+ * How long a contact-form submission survives, in days.
+ *
+ * The privacy policy publishes this figure, so it is enforced rather than
+ * aspirational: `scripts/seed.ts` turns it into a MongoDB TTL index on
+ * `leads.createdAt`, and Mongo reaps the document itself. Nothing in the app
+ * depends on a lead outliving this window.
+ *
+ * The one consequence worth knowing: a lead that later becomes a client is
+ * reaped from this collection too. Accounting records live in the books, not
+ * here, so the five-year obligation in the policy is unaffected — but if you
+ * want enquiry history kept longer, raise this number and re-run
+ * `npm run seed`, which drops and recreates the index. Mongo will not widen an
+ * existing TTL on its own.
+ */
+export const LEAD_RETENTION_DAYS = 90;
+
 export const NAV_ITEMS = [
   { key: "services", href: "/services" },
   { key: "aiAgents", href: "/ai-agents" },
@@ -85,13 +102,6 @@ export const FEATURED_SERVICES: readonly ServiceSlug[] = [
   "web-development",
   "ai-automation",
   "data-analytics",
-] as const;
-
-/** Home stat counters — labels live in messages under home.stats.* */
-export const HOME_STATS = [
-  { key: "clients", value: 40, suffix: "+" },
-  { key: "projects", value: 120, suffix: "+" },
-  { key: "industries", value: 15, suffix: "" },
 ] as const;
 
 export const INDUSTRY_SLUGS = [

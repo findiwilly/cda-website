@@ -29,11 +29,6 @@
       "subtitle": "Votre client vous cherche sur son téléphone. CDA fait en sorte qu'il vous trouve, vous fasse confiance, et vous écrive sur WhatsApp.",
       "proof": "15 secteurs · Yaoundé & Douala · IA intégrée"
     },
-    "stats": {
-      "clients": "Clients accompagnés",
-      "projects": "Projets livrés",
-      "industries": "Secteurs couverts"
-    },
     "powerOffer": {
       "eyebrow": "L'Offre Signature CDA",
       "title": "Votre présence digitale complète, livrée en 30 jours.",
@@ -42,15 +37,6 @@
       "b3": "Chatbot WhatsApp qui répond à vos clients 24h/24",
       "b4": "90 jours de contenu planifiés avec vous",
       "note": "Trois places par mois. Pas une de plus."
-    },
-    "ticker": {
-      "label": "CDA en action",
-      "item1": "Site web déployé pour un restaurant à Douala",
-      "item2": "Chatbot IA entraîné pour une microfinance",
-      "item3": "Campagne lancée pour une école à Yaoundé",
-      "item4": "Menu digital livré pour un hôtel",
-      "item5": "Identité de marque finalisée pour un salon de beauté",
-      "item6": "Tableau de bord analytics activé pour une boutique"
     },
     "services": {
       "eyebrow": "Nos services",
@@ -63,25 +49,6 @@
       "title": "On parle votre langage métier",
       "subtitle": "Quinze secteurs, des stratégies taillées pour chacun.",
       "viewAll": "Tous les secteurs"
-    },
-    "testimonials": {
-      "eyebrow": "Ils nous font confiance",
-      "title": "Des résultats qui parlent",
-      "t1": {
-        "quote": "CDA a refait notre image et nos réservations ont doublé en trois mois. On ne pensait pas ça possible ici.",
-        "name": "Mireille A.",
-        "role": "Gérante de salon, Yaoundé"
-      },
-      "t2": {
-        "quote": "Leur chatbot répond aux parents d'élèves jour et nuit. Notre secrétariat respire enfin.",
-        "name": "Éric N.",
-        "role": "Directeur d'école, Douala"
-      },
-      "t3": {
-        "quote": "Enfin une équipe qui comprend le marché camerounais et livre au niveau international.",
-        "name": "Sandrine T.",
-        "role": "Agence de voyage, Yaoundé"
-      }
     },
     "finalCta": {
       "title": "On vous montre exactement comment — dans votre session stratégique gratuite.",

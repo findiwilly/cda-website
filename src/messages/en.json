@@ -29,11 +29,6 @@
       "subtitle": "Your customer is looking for you on their phone. CDA makes sure they find you, trust you, and message you on WhatsApp.",
       "proof": "15 industries · Yaoundé & Douala · AI inside"
     },
-    "stats": {
-      "clients": "Clients served",
-      "projects": "Projects delivered",
-      "industries": "Industries covered"
-    },
     "powerOffer": {
       "eyebrow": "The CDA Signature Offer",
       "title": "Your complete digital presence, delivered in 30 days.",
@@ -42,15 +37,6 @@
       "b3": "WhatsApp chatbot answering your customers 24/7",
       "b4": "90 days of content planned with you",
       "note": "Three spots per month. Not one more."
-    },
-    "ticker": {
-      "label": "CDA in action",
-      "item1": "Website deployed for a Douala restaurant",
-      "item2": "AI chatbot trained for a microfinance",
-      "item3": "Campaign launched for a Yaoundé school",
-      "item4": "Digital menu delivered for a hotel",
-      "item5": "Brand identity finalized for a beauty salon",
-      "item6": "Analytics dashboard activated for a boutique"
     },
     "services": {
       "eyebrow": "Our services",
@@ -63,25 +49,6 @@
       "title": "We speak your industry's language",
       "subtitle": "Fifteen industries, strategies tailored to each one.",
       "viewAll": "All industries"
-    },
-    "testimonials": {
-      "eyebrow": "They trust us",
-      "title": "Results that speak",
-      "t1": {
-        "quote": "CDA rebuilt our image and our bookings doubled in three months. We didn't think that was possible here.",
-        "name": "Mireille A.",
-        "role": "Salon owner, Yaoundé"
-      },
-      "t2": {
-        "quote": "Their chatbot answers parents day and night. Our front office can finally breathe.",
-        "name": "Éric N.",
-        "role": "School director, Douala"
-      },
-      "t3": {
-        "quote": "Finally a team that understands the Cameroonian market and delivers at an international level.",
-        "name": "Sandrine T.",
-        "role": "Travel agency, Yaoundé"
-      }
     },
     "finalCta": {
       "title": "We'll show you exactly how — in your free strategy session.",

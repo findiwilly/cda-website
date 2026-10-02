@@ -159,7 +159,6 @@ export async function getPostBySlug(slug: string, locale: Locale2): Promise<Post
   }, ["post", slug, locale], { tags: [postTag], revalidate: REVALIDATE });
 }
 
-/** Slugs for `generateStaticParams`. Empty when Mongo is absent. */
 /**
  * Published slugs paired with the locale they were written in.
  *
@@ -181,6 +180,65 @@ export async function getPublishedPostSlugs(): Promise<
   return docs
     .filter((d) => d.locale === "fr" || d.locale === "en")
     .map((d) => ({ slug: String(d.slug), locale: d.locale as Locale2 }));
+}
+
+/**
+ * Where to send a visitor who asked for a post in the wrong language.
+ *
+ * The language toggle swaps the locale segment and keeps the slug. That is
+ * correct for every route except one: a blog post is a single document with a
+ * single slug, and the French and English versions are two *different*
+ * documents with *different* slugs. So toggling `/blog/prix-site-web-cameroun`
+ * to English asks for `/en/blog/prix-site-web-cameroun`, which exists nowhere —
+ * the visitor lands on a 404 and concludes the toggle is broken.
+ *
+ * Given that unreachable URL, this returns the best available destination, as a
+ * locale-agnostic path the caller prefixes:
+ *
+ *   - the post's actual translation, when it has a published one
+ *   - otherwise the blog index in the requested language. Not the same post in
+ *     its original language: bouncing back there leaves the toggle looking
+ *     broken, which is the very thing being fixed
+ *   - `null` when no published post anywhere uses that slug — a real 404
+ *
+ * Returns a path rather than performing the redirect so the caller stays in
+ * charge of the response, and so this stays unit-testable.
+ */
+export async function resolveWrongLocalePost(
+  slug: string,
+  requestedLocale: Locale2,
+): Promise<string | null> {
+  await prepareDatabase();
+  const col = await collection<Doc>(COLLECTIONS.posts);
+  if (!col) return null;
+
+  // `posts.slug` carries a unique index, so a slug identifies exactly one post
+  // across both languages — including which language it was written in.
+  const post = await col.findOne(
+    { slug, status: "published" },
+    { projection: { locale: 1, translationOf: 1 } },
+  );
+  if (!post) return null;
+
+  // Only reached when the post exists but not in the requested language. Guard
+  // anyway: if the two somehow agree, there is nothing to redirect to and
+  // redirecting would loop.
+  if (post.locale === requestedLocale) return null;
+
+  const translationId = typeof post.translationOf === "string" ? post.translationOf : null;
+  if (translationId && ObjectId.isValid(translationId)) {
+    const translation = await col.findOne(
+      { _id: new ObjectId(translationId), status: "published" },
+      { projection: { slug: 1, locale: 1 } },
+    );
+    // Only follow it if it really is the language being asked for; a dangling
+    // or mistyped `translationOf` must not send the visitor to a third thing.
+    if (translation && translation.locale === requestedLocale) {
+      return `/blog/${String(translation.slug)}`;
+    }
+  }
+
+  return "/blog";
 }
 
 export async function createPost(input: PostInput): Promise<Post> {
