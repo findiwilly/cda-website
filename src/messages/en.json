@@ -470,7 +470,11 @@
     "contactCol": "Contact",
     "location": "Yaoundé, Cameroon",
     "madeIn": "Proudly built in Yaoundé.",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy"
   },
   "common": {
     "loading": "Loading…",

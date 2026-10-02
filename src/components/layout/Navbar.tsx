@@ -62,7 +62,7 @@ export function Navbar() {
 
         {/* Desktop links. Tighter spacing at `lg`, roomier from `xl` — eight
             links plus the CTA only fit comfortably on wide viewports. */}
-        <div className="hidden items-center gap-6 lg:flex xl:gap-7">
+        <div className="hidden items-center gap-4 lg:flex xl:gap-5">
           {LINKS.map((link) => {
             const active = pathname.startsWith(link.href);
             return (

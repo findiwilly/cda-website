@@ -470,7 +470,11 @@
     "contactCol": "Contact",
     "location": "Yaoundé, Cameroun",
     "madeIn": "Conçu avec fierté à Yaoundé.",
-    "rights": "Tous droits réservés."
+    "rights": "Tous droits réservés.",
+    "legal": "Légal",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions générales",
+    "cookies": "Politique cookies"
   },
   "common": {
     "loading": "Chargement…",

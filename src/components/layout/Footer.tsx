@@ -76,6 +76,26 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
+            <p className="mt-8 text-xs uppercase tracking-[0.25em] text-ink-400">
+              {t("legal")}
+            </p>
+            <ul className="mt-4 space-y-3 text-sm">
+              <li>
+                <Link href="/legal/privacy" className="text-ink-200 transition-colors hover:text-white">
+                  {t("privacy")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/legal/terms" className="text-ink-200 transition-colors hover:text-white">
+                  {t("terms")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/legal/cookies" className="text-ink-200 transition-colors hover:text-white">
+                  {t("cookies")}
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
