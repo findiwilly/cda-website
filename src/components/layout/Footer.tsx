@@ -18,11 +18,13 @@ export function Footer() {
       <div className="relative mx-auto max-w-content px-6 py-16">
         <div className="grid gap-12 md:grid-cols-[2fr_1fr_1fr]">
           <div>
-            <p className="flex items-baseline gap-1.5">
+            <p className="flex flex-col items-start leading-none">
               <span className="font-display text-3xl font-extrabold tracking-tight text-ink-50">
                 CDA
               </span>
-              <span className="h-1.5 w-1.5 rounded-full bg-cdayellow" aria-hidden />
+              <span className="mt-1 text-xs uppercase tracking-[0.2em] text-ink-400">
+                Cameroon Digital Agency
+              </span>
             </p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-300">
               {t("tagline")}
@@ -103,7 +105,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {SITE.name}. {t("rights")}
           </p>
-          <p>{t("madeIn")}</p>
+
         </div>
       </div>
     </footer>

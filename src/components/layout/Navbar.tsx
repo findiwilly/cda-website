@@ -50,12 +50,11 @@ export function Navbar() {
     >
       <nav className="mx-auto flex h-[72px] max-w-content items-center justify-between px-6">
         {/* Wordmark */}
-        <Link href="/" className="flex items-baseline gap-1.5">
+        <Link href="/" className="flex flex-col items-start leading-none">
           <span className="font-display text-2xl font-extrabold tracking-tight text-ink-50">
             CDA
           </span>
-          <span className="h-1.5 w-1.5 rounded-full bg-cdayellow" aria-hidden />
-          <span className="ml-2 hidden text-[0.6rem] uppercase tracking-[0.25em] text-ink-400 xl:block">
+          <span className="mt-0.5 text-[0.65rem] uppercase tracking-[0.2em] text-ink-400">
             Cameroon Digital Agency
           </span>
         </Link>
