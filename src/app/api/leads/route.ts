@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { leadSchema } from "@/lib/content-schema";
 import { hasMongo } from "@/lib/env";
 import { createLead } from "@/lib/content";
-import { notifyNewLead } from "@/lib/mailer";
+import { confirmLead, notifyNewLead } from "@/lib/mailer";
 import { badRequest, jsonError, tooManyRequests, withErrorHandling } from "@/lib/api";
 import { checkRateLimit } from "@/lib/rate-limit";
 
@@ -43,6 +43,7 @@ export const POST = withErrorHandling(async (request: NextRequest) => {
 
   // Email is best-effort and never blocks the response.
   await notifyNewLead(parsed.data);
+  await confirmLead(parsed.data).catch(() => undefined);
 
   return NextResponse.json({ ok: true });
 });

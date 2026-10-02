@@ -66,4 +66,5 @@ export const COLLECTIONS = {
   faqs: "faqs",
   leads: "leads",
   admins: "admins",
+  messages: "messages",
 } as const;

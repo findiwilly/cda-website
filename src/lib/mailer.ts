@@ -3,6 +3,13 @@ import "server-only";
 import nodemailer, { type Transporter } from "nodemailer";
 import { env, hasSmtp } from "@/lib/env";
 import { SITE } from "@/lib/constants";
+import {
+  renderAdminAction,
+  renderAdminReply,
+  renderLeadConfirmation,
+  renderLeadReceived,
+  renderTestimonialReceived,
+} from "@/lib/email-templates";
 
 /**
  * SMTP notifications.
@@ -128,32 +135,33 @@ export async function notifyNewLead(lead: {
   email?: string;
   message?: string;
 }): Promise<boolean> {
-  const phone = formatCameroonPhone(lead.whatsapp);
-  const text = [
-    `Nouveau lead : ${lead.name}`,
-    lead.business ? `Entreprise : ${lead.business}` : null,
-    lead.niche ? `Secteur : ${lead.niche}` : null,
-    `WhatsApp : ${phone}`,
-    lead.email ? `E-mail : ${lead.email}` : null,
-    lead.message ? `Message : ${lead.message}` : null,
-  ]
-    .filter(Boolean)
-    .join("\n");
-
+  const rendered = renderLeadReceived(lead);
   return send({
     to: inbox(),
-    subject: `Nouveau lead — ${lead.name}`,
-    text,
-    html: shell(
-      "Nouveau lead",
-      row("Nom", lead.name) +
-        row("Entreprise", lead.business ?? "") +
-        row("Secteur", lead.niche ?? "") +
-        row("WhatsApp", phone) +
-        row("E-mail", lead.email ?? "") +
-        row("Message", lead.message ?? ""),
-    ),
+    subject: rendered.subject,
+    text: rendered.text,
+    html: rendered.html,
     replyTo: lead.email || undefined,
+  });
+}
+
+/** Send a confirmation to the visitor after their enquiry is saved. */
+export async function confirmLead(lead: {
+  name: string;
+  business?: string;
+  niche?: string;
+  whatsapp: string;
+  email?: string;
+  message?: string;
+  locale?: string;
+}): Promise<boolean> {
+  if (!lead.email) return false;
+  const rendered = renderLeadConfirmation(lead);
+  return send({
+    to: lead.email,
+    subject: rendered.subject,
+    text: rendered.text,
+    html: rendered.html,
   });
 }
 
@@ -164,37 +172,38 @@ export async function notifyNewTestimonial(testimonial: {
   quote: string;
   rating: number;
 }): Promise<boolean> {
-  const text = [
-    `Nouveau témoignage à modérer`,
-    `Nom : ${testimonial.name}`,
-    `Société : ${[testimonial.role, testimonial.company].filter(Boolean).join(", ")}`,
-    `Note : ${testimonial.rating}/5`,
-    "",
-    testimonial.quote,
-  ].join("\n");
-
+  const rendered = renderTestimonialReceived(testimonial);
   return send({
     to: inbox(),
-    subject: `Témoignage à modérer — ${testimonial.name}`,
-    text,
-    html: shell(
-      "Témoignage à modérer",
-      row("Nom", testimonial.name) +
-        row("Société", [testimonial.role, testimonial.company].filter(Boolean).join(", ")) +
-        row("Note", `${testimonial.rating}/5`) +
-        `<blockquote style="margin:16px 0;padding:12px 16px;border-left:2px solid #007A5E;color:#D6D6DC;font-style:italic;">${escapeHtml(testimonial.quote)}</blockquote>`,
-    ),
+    subject: rendered.subject,
+    text: rendered.text,
+    html: rendered.html,
   });
 }
 
 export async function notifyAdminAction(action: string, detail: string): Promise<boolean> {
+  const rendered = renderAdminAction(action, detail);
   return send({
     to: env.adminEmail ?? inbox(),
-    subject: `[CDA] ${action}`,
-    text: `${action}\n\n${detail}`,
-    html: shell(
-      escapeHtml(action),
-      `<p style="margin:0;font-size:14px;line-height:1.7;color:#D6D6DC;">${escapeHtml(detail).replace(/\n/g, "<br />")}</p>`,
-    ),
+    subject: rendered.subject,
+    text: rendered.text,
+    html: rendered.html,
+  });
+}
+
+/** Send an admin reply to a visitor. */
+export async function sendAdminReply(options: {
+  to: string;
+  toName: string;
+  body: string;
+  locale?: string;
+  threadSubject?: string;
+}): Promise<boolean> {
+  const rendered = renderAdminReply(options);
+  return send({
+    to: options.to,
+    subject: rendered.subject,
+    text: rendered.text,
+    html: rendered.html,
   });
 }

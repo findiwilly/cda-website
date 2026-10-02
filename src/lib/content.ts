@@ -548,3 +548,6 @@ export function toLocale(value: string | undefined): Locale2 {
 }
 
 export type { ImageAsset };
+
+
+export { serialize };
